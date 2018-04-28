@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class enemyMovement : MonoBehaviour {
 
     Transform Player;
+
+	private GameObject[] Players;
 	
 	AudioSource audio;
 
@@ -27,9 +29,11 @@ public class enemyMovement : MonoBehaviour {
 
 		initialDir = transform.rotation;
 
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+		Players = GameObject.FindGameObjectsWithTag("Player");
 
-		audio = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+		Player = Players[0].transform;
+
+		audio = Players[0].GetComponent<AudioSource>();
 
         nav = GetComponent<NavMeshAgent>();
 
@@ -43,7 +47,7 @@ public class enemyMovement : MonoBehaviour {
 	    NavMeshHit hit;
 		Vector3 targetDir = Player.position - transform.position;
 		float angle = Vector3.Angle(targetDir, transform.forward);
-		if ((Player.position - transform.position).magnitude < 3f && !nav.Raycast(Player.position, out hit) && angle < _fov || audio.minDistance > targetDir.magnitude)
+		if ((targetDir).magnitude < 3f && !nav.Raycast(Player.position, out hit) && angle < _fov || audio.minDistance > targetDir.magnitude)
 		{
 			_time = 0f;
 			nav.isStopped = false;
@@ -98,6 +102,23 @@ public class enemyMovement : MonoBehaviour {
 				if (anim.GetBool("suspicious"))
 				{
 					_time += Time.deltaTime;
+				}
+			}
+		}
+		if (!((Player.position - transform.position).magnitude < 3f && !nav.Raycast(Player.position, out hit) && angle < _fov || audio.minDistance > targetDir.magnitude))
+		{
+			foreach (GameObject player in Players)
+			{
+				if (player.GetComponent<AudioSource>().minDistance > (player.transform.position - transform.position).magnitude || Vector3.Angle(player.transform.position - transform.position, transform.forward) < _fov && (player.transform.position - transform.position).magnitude < 3f && !nav.Raycast(player.transform.position, out hit))
+				{
+					Player = player.transform;
+					audio = player.GetComponent<AudioSource>();
+					break;
+				}
+				if ((player.transform.position - transform.position).magnitude < (Player.position - transform.position).magnitude)
+				{
+					Player = player.transform;
+					audio = player.GetComponent<AudioSource>();
 				}
 			}
 		}
