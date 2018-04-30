@@ -1,7 +1,9 @@
 using System;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -52,6 +54,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float SpellRate;
         public float Ultrate;
         public float DashRate;
+        public GameObject Object1;
+        public GameObject Object2;
+        public GameObject Object3;
+        public GameObject Object4;
         
         private float nextDash;
         private float nextUse;
@@ -100,7 +106,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButton("Fire1") && Time.time > nextUse)
             {
                 nextUse = Time.time + UseRate;
+                
                 GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation);
+                
+                
             }
             
             if (Input.GetButton("Fire2") && Time.time > nextDash)
