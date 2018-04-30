@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour {
 
     Transform Player;
+
+	public int HP = 100;
 
 	private GameObject[] Players;
 	
@@ -44,6 +48,11 @@ public class enemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (HP == 0)
+		{
+			anim.SetTrigger("dead");
+			Destroy(this);
+		}
 	    NavMeshHit hit;
 		Vector3 targetDir = Player.position - transform.position;
 		float angle = Vector3.Angle(targetDir, transform.forward);
