@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Meteor
   - enemy
+  - OtherCamera
+  - Ally
+  - Baton
+  - Grenade
   layers:
   - Default
   - TransparentFX
