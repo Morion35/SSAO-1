@@ -5572,7 +5572,8 @@ Prefab:
         type: 2}
       propertyPath: shotspawn
       value: 
-      objectReference: {fileID: 1121666588}
+      objectReference: {fileID: 4397691382455566, guid: e7a70588ac86b0c48976e3d187516c38,
+        type: 2}
     - target: {fileID: 20200666055911952, guid: 4db4391211478d948891009cdebc04dc,
         type: 2}
       propertyPath: m_RenderingPath
@@ -6896,7 +6897,8 @@ Prefab:
         type: 2}
       propertyPath: shotspawn
       value: 
-      objectReference: {fileID: 1746358404}
+      objectReference: {fileID: 4397691382455566, guid: e7a70588ac86b0c48976e3d187516c38,
+        type: 2}
     - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
         type: 2}
       propertyPath: impulsion
