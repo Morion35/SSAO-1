@@ -13,11 +13,11 @@ public class PlayerStatus : MonoBehaviour
 
 	public float maxmana = 100;
 
-	public int maxHP = 100;
+	public float maxHP = 100;
 
 	public float mana;
 
-	public int HP;
+	public float HP;
 	// Use this for initialization
 	void Start ()
 	{
@@ -31,15 +31,24 @@ public class PlayerStatus : MonoBehaviour
 	{
 		if (HP == 0)
 		{
-			anim.SetTrigger("dead");
-			Destroy(this);
+			anim.SetBool("death", true);
+			Destroy(gameObject, 3);
 			return;
 		}
 		if (mana < maxmana)
 		{
 			mana += 5 * Time.deltaTime;
 		}
-		HP_bar.fillAmount = (float) HP / maxHP;
+		if (HP > 0f)
+		{
+			HP -= 10 * Time.deltaTime;
+		}
+		else
+		{
+			HP = 0f;
+		}
+
+		HP_bar.fillAmount = HP / maxHP;
 		mana_bar.fillAmount = mana / maxmana;
 		
 	}
