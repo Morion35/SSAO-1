@@ -23,6 +23,7 @@ public class Mover : MonoBehaviour
 		if (other.CompareTag("enemy"))
 		{
 			GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+			other.GetComponent<enemyMovement>().HP -= 20;
 		}
 	}
 }
