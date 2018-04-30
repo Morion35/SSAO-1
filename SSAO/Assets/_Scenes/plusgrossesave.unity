@@ -24041,8 +24041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17bcb9579db9c834981b77d46db20df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mana_bar: {fileID: 1543382599}
-  HP_bar: {fileID: 1723789446}
+  mana_bar: {fileID: 1723789446}
+  HP_bar: {fileID: 1543382599}
   maxmana: 100
   maxHP: 100
   mana: 100
