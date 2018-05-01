@@ -8,7 +8,9 @@ public class SparkD : MonoBehaviour
 {
 
 	private float damage = 2.5f;
-
+	private float time;
+	private float _time;
+	
 	private GameObject[] enemies;
 	private GameObject[] players;
 	
@@ -16,10 +18,6 @@ public class SparkD : MonoBehaviour
 	{
 		enemies = GameObject.FindGameObjectsWithTag("enemy");
 		players = GameObject.FindGameObjectsWithTag("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
 		foreach (GameObject enemy in enemies)
 		{
 			if ((enemy.transform.position - transform.position).magnitude <= 0.7f)
@@ -35,6 +33,18 @@ public class SparkD : MonoBehaviour
 				player.GetComponent<PlayerStatus>().HP = (int)(damage)/2;
 			}
 		}
-		Destroy(this);
+		time = Time.time;
+		_time = GetComponent<TimeToLive>().TTL - 0.1f;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Time.time >= time + _time)
+		{
+			foreach (GameObject enemy in enemies)
+			{
+				enemy.GetComponent<NavMeshAgent>().speed = 1;
+			}
+		}
 	}
 }
