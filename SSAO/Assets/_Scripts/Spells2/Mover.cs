@@ -10,7 +10,7 @@ public class Mover : MonoBehaviour
 	public float speed;
 	public GameObject ImpactEffect;
 
-	public Transform initial;
+	private Transform initial;
 	
 	private Rigidbody rb;
 	
