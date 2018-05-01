@@ -18,7 +18,7 @@ public class MeteorImpactD : MonoBehaviour
 	void Update () {
 		foreach (GameObject enemy in enemies)
 		{
-			if ((enemy.transform.position - transform.position).magnitude < 3f)
+			if (enemy != null && (enemy.transform.position - transform.position).magnitude < 3f)
 			{
 				enemy.GetComponent<enemyMovement>().HP = 1;
 			}

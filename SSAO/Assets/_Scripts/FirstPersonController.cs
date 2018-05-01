@@ -108,8 +108,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 nextUse = Time.time + UseRate;
                 GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
-<<<<<<< HEAD
-=======
             }
             
             if (Input.GetButton("Fire2") && Time.time > nextDash && mana >= 20f)
@@ -132,31 +130,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Launch = Time.time + 10f;
                 GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
                 GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
->>>>>>> upstream/master
             }
-        
-            if (Input.GetButton("Fire2") && Time.time > nextDash)
-            {
-                nextDash = Time.time + DashRate;
-                Vector3 dash = transform.forward * 2;
-                transform.position += dash;
-                GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
-            }
-        
-            if (Input.GetButton("Fire3") && Time.time > nextSpell)
-            {
-                nextSpell = Time.time + SpellRate;
-            GameObject clone = Instantiate(spell1, shotspawn.position, shotspawn.rotation, transform);
-            }
-        
-            if (Input.GetButtonDown("Fire4") && Time.time > nextUlt)
-            {
-                nextUlt = Time.time + Ultrate;
-                Launch = Time.time + 10f;
-            GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
-            GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
-            }
-            
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 

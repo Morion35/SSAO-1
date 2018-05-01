@@ -21,7 +21,7 @@ public class FireColumnD : MonoBehaviour {
 	void Update () {
 		foreach (GameObject enemy in enemies)
 		{
-			if ((enemy.transform.position - transform.position).magnitude <= 0.5f)
+			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 0.5f)
 			{
 				enemy.GetComponent<enemyMovement>().HP -= (int)damage;
 			}
