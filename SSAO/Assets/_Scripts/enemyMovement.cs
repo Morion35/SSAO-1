@@ -59,7 +59,7 @@ public class enemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (HP == 0)
+		if (HP <= 0)
 		{
 			anim.SetTrigger("dead");
 			anim.SetBool("walking",false);

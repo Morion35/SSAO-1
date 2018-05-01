@@ -12,6 +12,7 @@ TagManager:
   - Grenade
   - mage
   - healer
+  - Spell
   layers:
   - Default
   - TransparentFX
