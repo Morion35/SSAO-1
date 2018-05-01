@@ -29,7 +29,7 @@ public class PlayerStatus : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate ()
 	{
-		if (HP == 0)
+		if (HP <= 0)
 		{
 			anim.SetBool("death", true);
 			Destroy(gameObject, 3);
@@ -39,7 +39,7 @@ public class PlayerStatus : MonoBehaviour
 		{
 			mana += 5 * Time.deltaTime;
 		}
-
+		
 		HP_bar.fillAmount = HP / maxHP;
 		mana_bar.fillAmount = mana / maxmana;
 		

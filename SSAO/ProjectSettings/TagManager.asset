@@ -10,6 +10,7 @@ TagManager:
   - Ally
   - Baton
   - Grenade
+  - Spell
   layers:
   - Default
   - TransparentFX

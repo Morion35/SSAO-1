@@ -19,11 +19,14 @@ public class Mover : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Destroy(gameObject);
-		if (other.CompareTag("enemy"))
+		if (!other.CompareTag("Spell"))
 		{
-			GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
-			other.GetComponent<enemyMovement>().HP -= 20;
+			Destroy(gameObject);
+			if (other.CompareTag("enemy"))
+			{
+				GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+			}
 		}
+		
 	}
 }
