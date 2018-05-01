@@ -32,7 +32,7 @@ public class enemyMovement : MonoBehaviour {
 	private Quaternion initialDir;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         initialPos = transform.position;
 
 		initialDir = transform.rotation;
