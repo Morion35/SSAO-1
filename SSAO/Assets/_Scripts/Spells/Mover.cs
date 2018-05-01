@@ -10,7 +10,7 @@ public class Mover : MonoBehaviour
 	public float speed;
 	public GameObject ImpactEffect;
 
-	public Transform initial;
+	private Transform initial;
 	
 	private Rigidbody rb;
 	
@@ -39,7 +39,12 @@ public class Mover : MonoBehaviour
                    other.GetComponent<enemyMovement>().Player = initial;
                 }
             
-            } 
+            }
+
+	        if (other.CompareTag("Player"))
+	        {
+		        GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+	        }
         }
     }
 

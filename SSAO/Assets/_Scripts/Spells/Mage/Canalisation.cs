@@ -10,22 +10,24 @@ public class Canalisation : MonoBehaviour {
 	private float damage = 50f;
 	private float time;
 	private float _time;
+	private PlayerStatus status = GameObject.Find("Mage").GetComponent<PlayerStatus>();
+	private FirstPersonController FPS = GameObject.Find("Mage").GetComponent<FirstPersonController>();
 	
 	void Start ()
 	{
-		GameObject.Find("Mage").GetComponent<PlayerStatus>().mana -= cost;
-		GameObject.Find("Mage").GetComponent<PlayerStatus>().HP -= damage;
-		GameObject.Find("Mage").GetComponent<FirstPersonController>().m_WalkSpeed = 0;
+		status.mana -= cost;
+		status.HP -= damage;
+		FPS.m_WalkSpeed = 0;
 		time = Time.time;
 		_time = GetComponent<TimeToLive>().TTL - 0.1f;
 	}
 
 	private void Update()
 	{
-		GameObject.Find("Mage").GetComponent<PlayerStatus>().mana -= 5f * Time.deltaTime;
+		status.mana -= 5f * Time.deltaTime;
 		if (Time.time >= time + _time)
 		{
-			GameObject.Find("Mage").GetComponent<FirstPersonController>().m_WalkSpeed = 1;
+			FPS.m_WalkSpeed = 1;
 		}
 	}
 }
