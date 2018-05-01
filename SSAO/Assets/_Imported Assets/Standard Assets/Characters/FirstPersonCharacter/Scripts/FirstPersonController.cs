@@ -66,7 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float Launch;
 
         // Use this for initialization
-        private void Start()
+        private void Awake()
         {
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
@@ -107,6 +107,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (GameObject.Find("Mage").GetComponent<PlayerStatus>().mana > 5 ||
                 GameObject.Find("Healer").GetComponent<PlayerStatus>().mana > 5)
             {
+                nextUse = Time.time + UseRate;
+                
+                GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
+                
+
+            }
                 if (Input.GetButton("Fire1") && Time.time > nextUse)
                 {
                     nextUse = Time.time + UseRate;
