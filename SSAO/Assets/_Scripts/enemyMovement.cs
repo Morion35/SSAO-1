@@ -51,7 +51,7 @@ public class enemyMovement : MonoBehaviour {
 		if (HP == 0)
 		{
 			anim.SetTrigger("dead");
-			Destroy(this);
+			Destroy(gameObject, 3f);
 		}
 	    NavMeshHit hit;
 		Vector3 targetDir = Player.position - transform.position;
