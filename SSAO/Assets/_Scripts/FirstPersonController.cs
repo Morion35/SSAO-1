@@ -132,7 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
                 GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
                 }
-
+            }
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
