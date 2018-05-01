@@ -10,7 +10,7 @@ public class Mover : MonoBehaviour
 	public float speed;
 	public GameObject ImpactEffect;
 
-	public Transform initial;
+	private Transform initial;
 	
 	private Rigidbody rb;
 	
@@ -22,18 +22,30 @@ public class Mover : MonoBehaviour
 		rb.velocity = transform.forward * speed;
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("enemy"))
-		{
-			GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
-			other.GetComponent<enemyMovement>().HP -= 20;
-			if (!other.GetComponent<enemyMovement>().isFocused)
-			{
-				other.GetComponent<enemyMovement>().hint = true;
-				other.GetComponent<enemyMovement>().Player = initial;
-			}
-		}
-		Destroy(gameObject);
-	}
+    private void OnTriggerEnter(Collider other)
+    {
+    
+        if (!other.CompareTag("Spell"))
+        {
+        
+            Destroy(gameObject);
+            if (other.CompareTag("enemy"))
+            {
+            
+                GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+                if (!other.GetComponent<enemyMovement>().isFocused)
+                {
+                   other.GetComponent<enemyMovement>().hint = true;
+                   other.GetComponent<enemyMovement>().Player = initial;
+                }
+            
+            }
+
+	        if (other.CompareTag("Player"))
+	        {
+		        GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+	        }
+        }
+    }
+
 }

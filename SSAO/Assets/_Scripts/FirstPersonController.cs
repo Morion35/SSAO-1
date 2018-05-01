@@ -13,7 +13,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
-        [SerializeField] private float m_WalkSpeed;
+        [SerializeField] public float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
@@ -64,12 +64,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextSpell;
         private float nextUlt;
         private float Launch;
+        private float mana;
 
         // Use this for initialization
         private void Awake()
         {
             m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = Camera.main;
+            m_Camera = GetComponentInChildren<Camera>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -84,6 +85,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            mana = GetComponent<PlayerStatus>().mana;
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -102,42 +104,34 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = 0f;
             }
-            
-            if (Input.GetButton("Fire1") && Time.time > nextUse)
+            if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
             {
                 nextUse = Time.time + UseRate;
-                
                 GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
-                
-
             }
             
-            if (Input.GetButton("Fire2") && Time.time > nextDash)
+            if (Input.GetButton("Fire2") && Time.time > nextDash && mana >= 20f)
             {
                 nextDash = Time.time + DashRate;
                 Vector3 dash = transform.forward * 2;
                 transform.position += dash;
-                GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation);
+                GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
             }
             
-            if (Input.GetButton("Fire3") && Time.time > nextSpell)
+            if (Input.GetButton("Fire3") && Time.time > nextSpell && mana >= 60f)
             {
                 nextSpell = Time.time + SpellRate;
-                GameObject clone = Instantiate(spell1, shotspawn.position, shotspawn.rotation);
+                GameObject clone = Instantiate(spell1, shotspawn.position, shotspawn.rotation, transform);
             }
             
-            if (Input.GetButtonDown("Fire4") && Time.time > nextUlt)
+            if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)
             {
                 nextUlt = Time.time + Ultrate;
                 Launch = Time.time + 10f;
-                GameObject clone2 = Instantiate(Ulti, transform.position , transform.rotation);
-                GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation);
+                GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
+                GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
             }
-
-            
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
-
-            
         }
 
 
