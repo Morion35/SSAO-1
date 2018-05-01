@@ -107,9 +107,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 nextUse = Time.time + UseRate;
                 
-                GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation);
+                GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
                 
-                
+
             }
             
             if (Input.GetButton("Fire2") && Time.time > nextDash)
