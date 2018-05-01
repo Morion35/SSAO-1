@@ -1,9 +1,8 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mapounette2", "Assembly-CSharp.csproj", "{5B7F178C-5D58-6C98-6B7A-A2F4F42F9394}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{5B7F178C-5D58-6C98-6B7A-A2F4F42F9394}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mapounette2", "Assembly-CSharp-Editor.csproj", "{1D4C26E1-9D7C-322F-A4DD-E4040CCCF6EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{1D4C26E1-9D7C-322F-A4DD-E4040CCCF6EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
