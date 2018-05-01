@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class ExplosionD : MonoBehaviour {
+public class FireColumnD : MonoBehaviour {
 
 	private float damage = 25f;
 	
@@ -21,14 +21,14 @@ public class ExplosionD : MonoBehaviour {
 	void Update () {
 		foreach (GameObject enemy in enemies)
 		{
-			if ((enemy.transform.position - transform.position).magnitude <= 1.5f)
+			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 0.5f)
 			{
 				enemy.GetComponent<enemyMovement>().HP -= (int)damage;
 			}
 		}
 		foreach (GameObject player in players)
 		{
-			if ((player.transform.position - transform.position).magnitude <= 1.5f)
+			if ((player.transform.position - transform.position).magnitude <= 0.5f)
 			{
 				player.GetComponent<PlayerStatus>().HP = (int)(damage);
 			}
