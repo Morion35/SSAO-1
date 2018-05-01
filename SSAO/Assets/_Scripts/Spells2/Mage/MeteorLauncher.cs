@@ -9,9 +9,13 @@ public class MeteorLauncher : MonoBehaviour {
 	public GameObject ImpactEffect;
 	
 	private Rigidbody rb;
+
+	private Transform parent;
 	
 	private void Start()
 	{
+		parent = transform.parent;
+		transform.parent = null;
 		rb = GetComponent<Rigidbody>();
 		rb.velocity = transform.forward * speed;
 	}

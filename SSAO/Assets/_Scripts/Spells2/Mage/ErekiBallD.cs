@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Impulsion1D : MonoBehaviour {
-
-	private float cost = 20f;
-	private float damage = 20f;
+public class ErekiBallD : MonoBehaviour
+{
+	private float cost = 5f;
+	private float damage = 10;
 	
-	void Start ()
+	void Awake ()
 	{
-		GameObject.Find("Mage").GetComponent<PlayerStatus>().mana -= cost;
+		GetComponentInParent<PlayerStatus>().mana -= cost;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -18,7 +18,7 @@ public class Impulsion1D : MonoBehaviour {
 		{
 			other.GetComponent<enemyMovement>().HP -= (int)damage;
 		}
-		if (other.CompareTag("Player") && (other.transform.position - transform.position).magnitude >= 0.05f )
+		if (other.CompareTag("Player"))
 		{
 			other.GetComponent<PlayerStatus>().HP -= (int)damage/2;
 		}
