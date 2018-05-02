@@ -30,7 +30,7 @@ public class FireColumnD : MonoBehaviour {
 		{
 			if ((player.transform.position - transform.position).magnitude <= 0.5f)
 			{
-				player.GetComponent<PlayerStatus>().HP = damage;
+				player.GetComponent<PlayerStatus>().HP -= damage;
 			}
 		}
 	}
