@@ -41,7 +41,7 @@ public class porte : MonoBehaviour {
 
     {
 
-        if (other.tag == "Spell")
+        if (other.CompareTag("Spell"))
 
             HP -= 5;
 
