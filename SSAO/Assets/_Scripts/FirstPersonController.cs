@@ -89,7 +89,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             
-            // mana = GetComponent<PlayerStatus>().mana;
+            mana = GetComponent<PlayerStatus>().mana;
                 
             RotateView();
 

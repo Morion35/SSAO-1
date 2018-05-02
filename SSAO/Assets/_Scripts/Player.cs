@@ -18,7 +18,7 @@ public class Player : NetworkBehaviour
 	
 	private void Start()
 	{
-		mainCamera = Camera.main.gameObject;
+		mainCamera = GetComponentInChildren<Camera>().gameObject;
 		
 		EnablePlayer();
 	}
