@@ -30,7 +30,7 @@ public class SparkD : MonoBehaviour
 		{
 			if ((player.transform.position - transform.position).magnitude <= 0.7f)
 			{
-				player.GetComponent<PlayerStatus>().HP = (int)(damage)/2;
+				player.GetComponent<PlayerStatus>().HP -= (int)(damage)/2;
 			}
 		}
 		time = Time.time;
