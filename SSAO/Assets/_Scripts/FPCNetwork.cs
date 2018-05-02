@@ -1,19 +1,12 @@
-using System;
-using JetBrains.Annotations;
-using UnityEditor.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
-using Object = System.Object;
-using Random = UnityEngine.Random;
-using UnityEditor.Networking;
 
-namespace UnityStandardAssets.Characters.FirstPerson
+public class FPCNetwork : MonoBehaviour 
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : MonoBehaviour
-    {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] public float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -46,6 +39,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+    /*
+    
         public GameObject skillshot;
         public GameObject impulsion;
         public GameObject spell1;
@@ -69,6 +64,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float mana;
 
         bool isInGame;
+    
+    */
         
         // Use this for initialization
         private void Awake()
@@ -111,6 +108,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = 0f;
             }
+            
+            /*
             if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
             {
                 nextUse = Time.time + UseRate;
@@ -138,6 +137,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
                 GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
             }
+            */
+            
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
@@ -323,4 +324,3 @@ namespace UnityStandardAssets.Characters.FirstPerson
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
     }
-}

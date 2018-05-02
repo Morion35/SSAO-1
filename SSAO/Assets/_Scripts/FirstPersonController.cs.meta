@@ -5,7 +5,19 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  - m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  - skillshot: {instanceID: 0}
+  - impulsion: {instanceID: 0}
+  - spell1: {instanceID: 0}
+  - Ulti: {instanceID: 0}
+  - Launcher: {instanceID: 0}
+  - shotspawn: {instanceID: 0}
+  - Object1: {instanceID: 0}
+  - Object2: {instanceID: 0}
+  - Object3: {instanceID: 0}
+  - Object4: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
