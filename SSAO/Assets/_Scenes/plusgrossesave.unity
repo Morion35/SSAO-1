@@ -6799,7 +6799,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1711087575676172, guid: 4db4391211478d948891009cdebc04dc, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4281044004178284, guid: 4db4391211478d948891009cdebc04dc, type: 2}
       propertyPath: m_LocalPosition.y
@@ -37829,6 +37829,10 @@ Prefab:
         type: 2}
       propertyPath: HP
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095375522601876, guid: 29b7eda9648e70242a623b92f17dd7fe, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29b7eda9648e70242a623b92f17dd7fe, type: 2}
