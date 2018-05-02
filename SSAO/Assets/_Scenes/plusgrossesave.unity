@@ -6978,77 +6978,6 @@ Prefab:
       propertyPath: m_Name
       value: Healer
       objectReference: {fileID: 0}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: shotspawn
-      value: 
-      objectReference: {fileID: 750941340}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: impulsion
-      value: 
-      objectReference: {fileID: 1088111997920770, guid: 9ef966c6ac022da4ea89e9ee0d143fd1,
-        type: 2}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: spell1
-      value: 
-      objectReference: {fileID: 1346845329995888, guid: 607ed8911da093f4ea0d6e01b4d6c9dd,
-        type: 2}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: skillshot
-      value: 
-      objectReference: {fileID: 1983164970358314, guid: b0b8362c4a1f9524a892422065433d86,
-        type: 2}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: Ulti
-      value: 
-      objectReference: {fileID: 1718903699281828, guid: 0c16320dd5c9b1145bed3ebe501e1e2d,
-        type: 2}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: UseRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: SpellRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: Ultrate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114224242509638832, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: DashRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711087575676172, guid: 4db4391211478d948891009cdebc04dc, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20200666055911952, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: m_RenderingPath
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281044004178284, guid: 4db4391211478d948891009cdebc04dc, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807704415971752, guid: 4db4391211478d948891009cdebc04dc, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20200666055911952, guid: 4db4391211478d948891009cdebc04dc,
-        type: 2}
-      propertyPath: far clip plane
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4db4391211478d948891009cdebc04dc, type: 2}
   m_IsPrefabParent: 0
@@ -15474,11 +15403,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 15, z: 10}
   m_Center: {x: 0, y: 5, z: 0}
---- !u!4 &750941340 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4807704415971752, guid: 4db4391211478d948891009cdebc04dc,
-    type: 2}
-  m_PrefabInternal: {fileID: 276659548}
 --- !u!1001 &751820376
 Prefab:
   m_ObjectHideFlags: 0
