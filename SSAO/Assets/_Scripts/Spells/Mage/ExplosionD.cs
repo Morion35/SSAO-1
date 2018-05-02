@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class ExplosionD : MonoBehaviour {
 
-	private float damage = 25f;
+	private float damage = 0.2f;
 	
 	private GameObject[] enemies;
 	private GameObject[] players;
@@ -23,14 +23,14 @@ public class ExplosionD : MonoBehaviour {
 		{
 			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 1.5f)
 			{
-				enemy.GetComponent<enemyMovement>().HP -= (int)damage;
+				enemy.GetComponent<enemyMovement>().HP -= damage;
 			}
 		}
 		foreach (GameObject player in players)
 		{
 			if ((player.transform.position - transform.position).magnitude <= 1.5f)
 			{
-				player.GetComponent<PlayerStatus>().HP = (int)(damage);
+				player.GetComponent<PlayerStatus>().HP -= damage;
 			}
 		}
 	}

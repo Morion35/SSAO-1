@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class Spell1LauncherD : MonoBehaviour {
+
+public class ExplosionLauncherDH : MonoBehaviour {
 
 	private float cost = 60f;
-	private float damage = 100;
+	private float damage = 50f;
 	
 	void Start ()
 	{
-		GameObject.Find("Mage").GetComponent<PlayerStatus>().mana -= cost;
+		GetComponentInParent<PlayerStatus>().mana -= cost;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -22,7 +23,7 @@ public class Spell1LauncherD : MonoBehaviour {
 		}
 		if (other.CompareTag("Player"))
 		{
-			other.GetComponent<PlayerStatus>().HP -= (int)damage/2;
+			other.GetComponent<PlayerStatus>().HP += (int)damage/2;
 		}
 	}
 }
