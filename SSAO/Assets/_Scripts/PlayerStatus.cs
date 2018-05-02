@@ -39,6 +39,11 @@ public class PlayerStatus : MonoBehaviour
 		{
 			mana += 5 * Time.deltaTime;
 		}
+
+		if (HP >= 100f)
+		{
+			HP = 100f;
+		}
 		
 		HP_bar.fillAmount = HP / maxHP;
 		mana_bar.fillAmount = mana / maxmana;

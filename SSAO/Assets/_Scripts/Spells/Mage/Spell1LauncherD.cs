@@ -18,12 +18,10 @@ public class Spell1LauncherD : MonoBehaviour {
 	{
 		if (other.CompareTag("enemy"))
 		{
-			other.GetComponent<NavMeshAgent>().speed = 0;
 			other.GetComponent<enemyMovement>().HP -= (int)damage;
 		}
 		if (other.CompareTag("Player"))
 		{
-			other.GetComponent<FirstPersonController>().m_WalkSpeed = 0;
 			other.GetComponent<PlayerStatus>().HP -= (int)damage/2;
 		}
 	}

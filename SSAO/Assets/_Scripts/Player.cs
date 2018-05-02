@@ -18,7 +18,7 @@ public class Player : NetworkBehaviour
 	
 	private void Start()
 	{
-		mainCamera = Camera.main.gameObject;
+		mainCamera = GetComponentInChildren<Camera>().gameObject;
 		
 		EnablePlayer();
 	}
@@ -27,8 +27,8 @@ public class Player : NetworkBehaviour
 	{
 
 		if (isLocalPlayer)
-			mainCamera.SetActive(true);
-		
+	 		mainCamera.SetActive(true);
+	
 		onToggleShared.Invoke(false);
 
 		if (isLocalPlayer)
@@ -40,10 +40,10 @@ public class Player : NetworkBehaviour
 
 	void EnablePlayer()
 	{
-		
+	
 		if (isLocalPlayer)
 			mainCamera.SetActive(false);
-
+		
 		onToggleShared.Invoke(true);
 
 		if (isLocalPlayer)
