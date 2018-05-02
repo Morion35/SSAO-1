@@ -1,12 +1,11 @@
 using System;
 using JetBrains.Annotations;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Object = System.Object;
 using Random = UnityEngine.Random;
-using UnityEditor.Networking;
+
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
