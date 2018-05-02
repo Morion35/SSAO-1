@@ -29,6 +29,10 @@ public class Mover : MonoBehaviour
         {
         
             Destroy(gameObject);
+	        if (other.CompareTag("porte"))
+	        {
+		        other.GetComponent<porte>().HP -= 20;
+	        }
             if (other.CompareTag("enemy"))
             {
             

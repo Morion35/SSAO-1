@@ -10,7 +10,7 @@ public class MeteorMover : MonoBehaviour {
 
 	private void FixedUpdate()
 	{
-		if (transform.position.y < 0)
+		if (transform.position.y <= 0.6f)
 		{
 			Destroy(gameObject);
 			GameObject clone = Instantiate(ImpactEffect, new Vector3(transform.position.x, 0, transform.position.z),
