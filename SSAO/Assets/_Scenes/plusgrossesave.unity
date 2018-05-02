@@ -37794,7 +37794,7 @@ Prefab:
     - target: {fileID: 20475117122506370, guid: 29b7eda9648e70242a623b92f17dd7fe,
         type: 2}
       propertyPath: far clip plane
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 20475117122506370, guid: 29b7eda9648e70242a623b92f17dd7fe,
         type: 2}
@@ -37803,7 +37803,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4724094192124912, guid: 29b7eda9648e70242a623b92f17dd7fe, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 20475117122506370, guid: 29b7eda9648e70242a623b92f17dd7fe,
+        type: 2}
+      propertyPath: m_RenderingPath
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20475117122506370, guid: 29b7eda9648e70242a623b92f17dd7fe,
+        type: 2}
+      propertyPath: field of view
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29b7eda9648e70242a623b92f17dd7fe, type: 2}
