@@ -25,8 +25,7 @@ public class MeteorLauncher : MonoBehaviour {
 		Destroy(gameObject);
 		if (other.CompareTag("enemy"))
 		{
-			Instantiate(ImpactEffect, other.transform.position + new Vector3(0,30f,0), other.transform.rotation);
-			Instantiate(ImpactEffect, other.transform.position + new Vector3(0,50f,0), other.transform.rotation);
+			Instantiate(ImpactEffect, other.transform.position + new Vector3(0,200f,0), other.transform.rotation);
 		}
 	}
 }
