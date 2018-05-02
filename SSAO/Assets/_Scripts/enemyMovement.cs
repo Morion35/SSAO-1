@@ -13,7 +13,7 @@ public class enemyMovement : MonoBehaviour {
 
 	public Transform Player;
 
-	public int HP = 100;
+	public float HP = 100;
 
 	private GameObject[] Players;
 	
