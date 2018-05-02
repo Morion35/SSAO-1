@@ -20,7 +20,7 @@ public class SparkD : MonoBehaviour
 		players = GameObject.FindGameObjectsWithTag("Player");
 		foreach (GameObject enemy in enemies)
 		{
-			if ((enemy.transform.position - transform.position).magnitude <= 0.7f)
+			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 0.7f)
 			{
 				enemy.GetComponent<enemyMovement>().HP -= (int)damage;
 				enemy.GetComponent<NavMeshAgent>().speed /= 2;
@@ -30,7 +30,7 @@ public class SparkD : MonoBehaviour
 		{
 			if ((player.transform.position - transform.position).magnitude <= 0.7f)
 			{
-				player.GetComponent<PlayerStatus>().HP = (int)(damage)/2;
+				player.GetComponent<PlayerStatus>().HP -= (int)(damage)/2;
 			}
 		}
 		time = Time.time;
@@ -43,7 +43,11 @@ public class SparkD : MonoBehaviour
 		{
 			foreach (GameObject enemy in enemies)
 			{
-				enemy.GetComponent<NavMeshAgent>().speed = 1;
+				if( enemy != null)
+				{
+					enemy.GetComponent<NavMeshAgent>().speed = 1;
+				}
+				
 			}
 		}
 	}
