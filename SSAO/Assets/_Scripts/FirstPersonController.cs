@@ -6,6 +6,7 @@ using UnityStandardAssets.Utility;
 using Object = System.Object;
 using Random = UnityEngine.Random;
 
+
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
@@ -66,11 +67,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float Launch;
         private float mana;
 
+        bool isInGame;
+        
         // Use this for initialization
         private void Awake()
         {
             m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = GetComponentInChildren<Camera>();
+            m_Camera = Camera.main; // GetComponentInChildren<Camera>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
@@ -85,8 +88,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            mana = GetComponent<PlayerStatus>().mana;
+            
+            // mana = GetComponent<PlayerStatus>().mana;
+                
             RotateView();
+
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
