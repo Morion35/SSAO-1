@@ -25,7 +25,11 @@ public class MeteorLauncher : MonoBehaviour {
 		Destroy(gameObject);
 		if (other.CompareTag("enemy"))
 		{
+<<<<<<< HEAD
+			GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,30f,0), other.transform.rotation);
+=======
 			GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,50f,0), other.transform.rotation);
+>>>>>>> bd5a329b3f142ba886560b891ea06ffc6e712a54
 		}
 	}
 }
