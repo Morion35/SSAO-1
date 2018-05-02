@@ -6,7 +6,7 @@ using System.Collections;
 
 public class porte : MonoBehaviour {
 
-    public Rigidbody rig = new Rigidbody();
+    public Rigidbody rig;
 
     public int HP;
 
@@ -17,11 +17,8 @@ public class porte : MonoBehaviour {
     private void Start()
 
     {
-        
-        pos = rig.transform.position;
-
-        HP = 300;
-
+        rig = GetComponent<Rigidbody>();
+        HP = 100;
     }
 
 
@@ -29,49 +26,10 @@ public class porte : MonoBehaviour {
 
     {
 
-        if (IsDead())
+        if (HP <= 0)
         {
-            Fall();
+            rig.AddForce(-1,0,0);
             
         }
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-
-    {
-
-        if (other.CompareTag("Spell"))
-
-            HP -= 5;
-
-    }
-
-
-    private bool IsDead()
-
-    {
-
-        return HP <= 0;
-
-    }
-
-
-    private void Fall()
-
-    {
-
-        pos = rig.transform.position;
-
-        if (pos.y >= -10F)
-
-        {
-
-            pos.y -= 0.05F;
-
-        }
-
-        rig.transform.position = pos;
-
     }
 }

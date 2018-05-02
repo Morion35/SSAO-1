@@ -13,6 +13,7 @@ TagManager:
   - mage
   - healer
   - Spell
+  - porte
   layers:
   - Default
   - TransparentFX
