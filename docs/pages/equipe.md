@@ -1,10 +1,8 @@
 ---
 layout: page
 title: Notre équipe
-description: Présentation des différents membres de notre équipe.
+tagline: Présentation des différents membres de notre équipe.
 ---
-
-# Présentation de notre équipe
 
 ### Edouard EISENFISZ, A.K.A "FireFox"
 
@@ -30,4 +28,4 @@ Avec ce projet j’espère progresser dans le C# mais aussi apprendre à utili
 
 ---
 
-[Retour à la page de présentation](index.html)
+[Retour à la page de présentation](../index.html)

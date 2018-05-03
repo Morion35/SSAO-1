@@ -4,9 +4,9 @@ title: SSAO
 tagline: Site pour le jeu SSAO
 ---
 
-# IMAGES DE PRESENTATION
+#### IMAGES DE PRESENTATION
 
-# Présentation
+#### Présentation
 
 **SSAO** sera un jeu de tir en coopération. Ce sera une jeu à la première personne, et les joueurs pourront y jouer de 1 à 4 personnes.
 Les joueurs devront évoluer dans un environnement et affronter différents types d’ennemis pour atteindre certains objectifs. Ces objectifs seront de différentes natures et nous les détaillerons dans ce cahier des charges. L’environnement sera un monde mêlant le style Fantastique et le style Steampunk.
@@ -26,10 +26,10 @@ Notre but dans ce projet est de créer un jeu intégrant différents concepts
  * Deux Ex : Human Revolution
 
 
-# [Accéder à notre GitHub](https://github.com/Wes974/SSAO)
+#### [Accéder à notre GitHub](https://github.com/Wes974/SSAO)
 
 ---
 
-[Voir les membres de notre équipe](pages/equipe.html)
-[Voir des images de notre jeu](pages/images.html)
-[Télécharger les rapports](pages/rapports.html)
+ - [Voir les membres de notre équipe](pages/equipe.html)
+ - [Voir des images de notre jeu](pages/images.html)
+ - [Télécharger les rapports](pages/rapports.html)

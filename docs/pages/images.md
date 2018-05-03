@@ -4,8 +4,6 @@ title: Images
 tagline: Différentes images de SSAO
 ---
 
-# Images
-
 **La map vue du dessus:**
 ![](https://github.com/Wes974/SSAO/raw/master/docs/assets/img/above.png)
 
@@ -23,4 +21,4 @@ tagline: Différentes images de SSAO
 
 ---
 
-[Retour](index.html)
+[Retour](../index.html)
