@@ -66,8 +66,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextUlt;
         private float Launch;
         private float mana;
-
-        bool isInGame;
         
         // Use this for initialization
         private void Awake()
