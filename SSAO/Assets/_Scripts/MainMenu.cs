@@ -5,9 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	public void PlayGame()
+
+	public void LaunchMageZone1()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("plusgrossesave");	// A METTRE ZONE 1 AVEC MAGE
+	}
+	
+	public void LaunchHealerZone1()
+	{
+		SceneManager.LoadScene("plusgrossesave");	// A METTRE ZONE 1 AVEC HEALER
+	}
+	
+	public void LaunchMulti()
+	{
+		SceneManager.LoadScene("GameLobby");
 	}
 
 	public void QuitGame()
