@@ -13,7 +13,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: "Les Rejet\xE9s"
   productName: SSAO
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: f49578b58c74a1648b5dcb7315e14630, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -255,7 +255,14 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 6ec706981a919c3489f0b061a40054e2, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: MacStandaloneSupport
@@ -642,9 +649,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 81369455-22bc-429b-8dd4-bbed4004bb42
-  projectName: levelbabou
-  organizationId: wes974
+  cloudProjectId: d41b7bca-9daa-451d-ae6f-e68ad9070cf4
+  projectName: SSAO (1)
+  organizationId: azuryion
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

@@ -47,7 +47,6 @@ public class SparkD : MonoBehaviour
 				{
 					enemy.GetComponent<NavMeshAgent>().speed = 1;
 				}
-				
 			}
 		}
 	}
