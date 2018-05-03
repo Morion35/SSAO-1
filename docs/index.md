@@ -23,6 +23,7 @@ Notre but dans ce projet est de créer un jeu intégrant différents concepts d�
  
  * Deux Ex : Human Revolution
 
+---
 
 #### [Accéder à notre GitHub](https://github.com/Wes974/SSAO)
 
