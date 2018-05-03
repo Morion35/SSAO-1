@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +15,7 @@ public class MainMenu : MonoBehaviour {
 	
 	public void LaunchHealerZone1()
 	{
-		SceneManager.LoadScene("plusgrossesave");	// A METTRE ZONE 1 AVEC HEALER
+		SceneManager.LoadScene("Zone 1");
 	}
 	
 	public void LaunchMulti()

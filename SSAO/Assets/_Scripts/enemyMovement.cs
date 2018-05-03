@@ -39,11 +39,18 @@ public class enemyMovement : MonoBehaviour {
 		Players = GameObject.FindGameObjectsWithTag("Player");
 
 		int i = 0;
-		while (!Players[i].activeSelf)
+		while (i < Players.Length && !Players[i].activeSelf)
 		{
 			i++;
 		}
-		Player = Players[i].transform;
+		if (i == Players.Length)
+		{
+			Player = new RectTransform();
+		}
+		else
+		{
+			Player = Players[i].transform;
+		}
 
 		isFocused = false;
 
@@ -58,6 +65,7 @@ public class enemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		Players = GameObject.FindGameObjectsWithTag("Player");
 		if (HP <= 0)
 		{
 			anim.SetTrigger("dead");
