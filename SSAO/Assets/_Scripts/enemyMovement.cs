@@ -43,14 +43,7 @@ public class enemyMovement : MonoBehaviour {
 		{
 			i++;
 		}
-		if (i == Players.Length)
-		{
-			Player = new RectTransform();
-		}
-		else
-		{
-			Player = Players[i].transform;
-		}
+		Player = Players[i].transform;
 
 		isFocused = false;
 

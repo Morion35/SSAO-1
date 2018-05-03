@@ -28,7 +28,7 @@ public class porte : MonoBehaviour {
 
         if (HP <= 0)
         {
-            rig.AddForce(-1,0,0);
+            rig.AddForce(-20,0,0);
             
         }
     }
