@@ -6,6 +6,7 @@ using UnityStandardAssets.Utility;
 using Object = System.Object;
 using Random = UnityEngine.Random;
 
+
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof (CharacterController))]
@@ -65,7 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextUlt;
         private float Launch;
         private float mana;
-
+        
         // Use this for initialization
         private void Awake()
         {
@@ -85,8 +86,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            
             mana = GetComponent<PlayerStatus>().mana;
+                
             RotateView();
+
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {

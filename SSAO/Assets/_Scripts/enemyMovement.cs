@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -40,7 +39,7 @@ public class enemyMovement : MonoBehaviour {
 		Players = GameObject.FindGameObjectsWithTag("Player");
 
 		int i = 0;
-		while (!Players[i].activeSelf)
+		while (i < Players.Length && !Players[i].activeSelf)
 		{
 			i++;
 		}
@@ -59,6 +58,7 @@ public class enemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		Players = GameObject.FindGameObjectsWithTag("Player");
 		if (HP <= 0)
 		{
 			anim.SetTrigger("dead");
