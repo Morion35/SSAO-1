@@ -35,7 +35,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jump;
         private float m_YRotation;
         private Vector2 m_Input;
-        private Vector3 m_MoveDir = Vector3.zero;
+        public Vector3 m_MoveDir = Vector3.zero;
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
         private bool m_PreviouslyGrounded;
@@ -64,7 +64,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextUse;
         private float nextSpell;
         private float nextUlt;
-        private float Launch;
         private float mana;
         
         // Use this for initialization
@@ -117,9 +116,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButton("Fire2") && Time.time > nextDash && mana >= 20f)
             {
                 nextDash = Time.time + DashRate;
-                Vector3 dash = transform.forward * 2;
-                transform.position += dash;
-                GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
+                if (GetComponent<PlayerStatus>().armor != 50)
+                {
+                    Vector3 dash = transform.forward * 2;
+                    transform.position += dash;
+                    GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
+                }
+                else
+                {
+                    GameObject clone = Instantiate(impulsion, shotspawn.position, shotspawn.rotation, transform);
+                }
             }
             
             if (Input.GetButton("Fire3") && Time.time > nextSpell && mana >= 60f)
@@ -131,9 +137,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)
             {
                 nextUlt = Time.time + Ultrate;
-                Launch = Time.time + 10f;
-                GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
-                GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                if (GetComponent<PlayerStatus>().armor != 50)
+                {
+                    GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
+                    GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                }
+                else
+                {
+                    GameObject clone3 = Instantiate(Launcher, transform.position + new Vector3(0, 0.25f, 0), new Quaternion(1, 0, 0, 0),
+                        transform);
+                }
             }
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
