@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SwordMover : MonoBehaviour {
 
+	public float speed;
+
 	public GameObject ImpactEffect;
-	
-	private float cost = 60f;
 
 	private Transform initial;
 	
@@ -16,21 +16,41 @@ public class SwordMover : MonoBehaviour {
 	{
 		initial = transform.parent;
 		transform.parent = null;
-		GameObject.Find("Warrior").GetComponent<PlayerStatus>().mana -= cost;
+		rb = GetComponent<Rigidbody>();
+		rb.velocity = transform.forward * speed;
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-    
+
 		if (!other.CompareTag("Spell"))
 		{
-			
+			if (other.CompareTag("porte"))
+			{
+				Destroy(gameObject);
+				other.GetComponent<porte>().HP -= 20;
+			}
+
 			if (other.CompareTag("enemy"))
 			{
 				Destroy(gameObject);
-				GameObject clone = Instantiate(ImpactEffect, transform.position, ImpactEffect.transform.rotation);
+				if (!other.GetComponent<enemyMovement>().isFocused)
+				{
+					other.GetComponent<enemyMovement>().hint = true;
+					other.GetComponent<enemyMovement>().Player = initial;
+				}
+			}
+
+			if (other.CompareTag("Player"))
+			{
+				Destroy(gameObject);
+			}
+			
+			else
+			{
+				rb.velocity = new Vector3(0,0,0);
+				transform.SetPositionAndRotation(transform.position + (transform.forward/10), transform.rotation);
 			}
 		}
-		
 	}
 }

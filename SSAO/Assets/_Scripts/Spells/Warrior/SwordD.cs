@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SwordD : MonoBehaviour {
 
-	private float damage = 3.5f;
+	private float cost = 5f;
+	private float damage = 20f;
+	
+	void Awake ()
+	{
+		GetComponentInParent<PlayerStatus>().mana -= cost;
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -12,7 +18,6 @@ public class SwordD : MonoBehaviour {
 		{
 			other.GetComponent<enemyMovement>().HP -= damage;
 		}
-
 		if (other.CompareTag("Player"))
 		{
 			other.GetComponent<PlayerStatus>().HP -= (damage - (damage*other.GetComponent<PlayerStatus>().armor/100));

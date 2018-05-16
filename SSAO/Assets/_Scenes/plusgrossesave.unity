@@ -14323,6 +14323,18 @@ Prefab:
       propertyPath: HP_bar
       value: 
       objectReference: {fileID: 376973698}
+    - target: {fileID: 114512517396224900, guid: b1925c477c41cdd408ead37177c03caa,
+        type: 2}
+      propertyPath: skillshot
+      value: 
+      objectReference: {fileID: 1878013666455872, guid: 37dfb5227dba60642a5bde1c8270e1ab,
+        type: 2}
+    - target: {fileID: 114512517396224900, guid: b1925c477c41cdd408ead37177c03caa,
+        type: 2}
+      propertyPath: spell1
+      value: 
+      objectReference: {fileID: 1407742427412382, guid: bf4e8677458c8bb42b3db09866e73520,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 136725530957597406, guid: b1925c477c41cdd408ead37177c03caa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b1925c477c41cdd408ead37177c03caa, type: 2}
@@ -15966,6 +15978,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1753420844769216, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114734912971050024, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab,
+        type: 2}
+      propertyPath: shotspawn
+      value: 
+      objectReference: {fileID: 1415052411}
     m_RemovedComponents:
     - {fileID: 136386507993124338, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab, type: 2}
@@ -36583,6 +36604,11 @@ Transform:
   m_Father: {fileID: 857967377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1415052411 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4289966895341660, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 648296848}
 --- !u!1 &1420144072
 GameObject:
   m_ObjectHideFlags: 0

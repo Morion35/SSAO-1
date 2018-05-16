@@ -7,7 +7,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Dash : MonoBehaviour {
 
 	private float cost = 20f;
-	private float damage = 25f;
+	private float damage = 30f;
 	private float time;
 	private float _time;
 
