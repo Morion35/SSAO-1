@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwordD : MonoBehaviour {
 
 	private float cost = 5f;
-	private float damage = 20f;
+	private float damage = 30f;
 	
 	void Awake ()
 	{
