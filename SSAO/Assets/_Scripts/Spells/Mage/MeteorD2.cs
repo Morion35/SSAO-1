@@ -10,12 +10,12 @@ public class MeteorD2 : MonoBehaviour {
 	{
 		if (other.CompareTag("enemy"))
 		{
-			other.GetComponent<enemyMovement>().HP -= (int) damage;
+			other.GetComponent<enemyMovement>().HP -= damage;
 		}
 
 		if (other.CompareTag("Player"))
 		{
-			other.GetComponent<PlayerStatus>().HP -= (int) damage;
+			other.GetComponent<PlayerStatus>().HP -= (damage - (damage*other.GetComponent<PlayerStatus>().armor/100));
 		}
 	}
 	

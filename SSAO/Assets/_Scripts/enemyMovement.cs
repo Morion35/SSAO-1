@@ -13,7 +13,7 @@ public class enemyMovement : MonoBehaviour {
 	public Transform Player;
 
 	public float HP = 100;
-
+	
 	private GameObject[] Players;
 	
 	AudioSource audio;
@@ -33,7 +33,7 @@ public class enemyMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         initialPos = transform.position;
-
+		
 		initialDir = transform.rotation;
 
 		Players = GameObject.FindGameObjectsWithTag("Player");

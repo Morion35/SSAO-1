@@ -17,12 +17,17 @@ public class PlayerStatus : MonoBehaviour
 
 	public float mana;
 
+	public float armor;
+
+	public float _basearmor;
+
 	public float HP;
 	// Use this for initialization
 	void Start ()
 	{
 		anim = GetComponent<Animator>();
 		HP = maxHP;
+		_basearmor = armor;
 		mana = maxmana;
 	}
 	
@@ -47,6 +52,7 @@ public class PlayerStatus : MonoBehaviour
 		
 		HP_bar.fillAmount = HP / maxHP;
 		mana_bar.fillAmount = mana / maxmana;
-		
 	}
+
+	
 }

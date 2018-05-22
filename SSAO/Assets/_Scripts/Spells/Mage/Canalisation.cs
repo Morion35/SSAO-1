@@ -31,7 +31,7 @@ public class Canalisation : MonoBehaviour {
 		_status.mana -= 5f * Time.deltaTime;
 		if (Time.time >= time + _time)
 		{
-			Controller.m_WalkSpeed = 1;
+			Controller.m_WalkSpeed = 1.1f;
 		}
 	}
 }
