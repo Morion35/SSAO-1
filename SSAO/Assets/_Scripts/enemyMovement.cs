@@ -58,7 +58,6 @@ public class enemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Players = GameObject.FindGameObjectsWithTag("Player");
 		if (HP <= 0)
 		{
 			anim.SetTrigger("dead");
@@ -77,7 +76,8 @@ public class enemyMovement : MonoBehaviour {
 			{
 				if (player.activeSelf)
 				{
-					if (Vector3.Angle(player.transform.position - transform.position, transform.forward) < _fov && (player.transform.position - transform.position).magnitude < 3f && !nav.Raycast(player.transform.position, out hit) || player.GetComponent<AudioSource>().minDistance > (player.transform.position - transform.position).magnitude)
+					if (Vector3.Angle(player.transform.position - transform.position, transform.forward) < _fov && (player.transform.position - transform.position).magnitude < 3f
+					    && !nav.Raycast(player.transform.position, out hit) || player.GetComponent<AudioSource>().minDistance > (player.transform.position - transform.position).magnitude)
 					{
 						Player = player.transform;
 						audio = player.GetComponent<AudioSource>();
