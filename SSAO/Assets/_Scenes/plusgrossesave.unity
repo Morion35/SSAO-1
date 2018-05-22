@@ -39077,7 +39077,7 @@ Prefab:
         type: 2}
     - target: {fileID: 1355695264592380, guid: 5b718be53b073bb428ccebce264dac51, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114544490877159800, guid: 5b718be53b073bb428ccebce264dac51,
         type: 2}
@@ -39085,6 +39085,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1925373819243298, guid: d7b86e0149cc3a144b698812cdfa2bff,
         type: 2}
+    - target: {fileID: 82824879802083528, guid: 5b718be53b073bb428ccebce264dac51,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e37e860ca49f2df4387390af8cbe4c09, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b718be53b073bb428ccebce264dac51, type: 2}
   m_IsPrefabParent: 0
@@ -46887,7 +46892,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1991650202108836, guid: b1925c477c41cdd408ead37177c03caa, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1925c477c41cdd408ead37177c03caa, type: 2}
