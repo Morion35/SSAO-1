@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.WSA.WebCam;
 
 public class enemyMovement : MonoBehaviour {
 
@@ -15,8 +16,6 @@ public class enemyMovement : MonoBehaviour {
 	public float HP = 100;
 	
 	private GameObject[] Players;
-
-	public GameObject player;
 	
 	AudioSource audio;
 
@@ -88,14 +87,12 @@ public class enemyMovement : MonoBehaviour {
 					    && !nav.Raycast(player.transform.position, out hit) || player.GetComponent<AudioSource>().minDistance > (player.transform.position - transform.position).magnitude)
 					{
 						Player = player.transform;
-						this.player = player;
 						audio = player.GetComponent<AudioSource>();
 						isFocused = true;
 						break;
 					}
 					if ((player.transform.position - transform.position).magnitude < (Player.position - transform.position).magnitude)
 					{
-						this.player = player;
 						Player = player.transform;
 						audio = player.GetComponent<AudioSource>();
 					}
@@ -173,8 +170,22 @@ public class enemyMovement : MonoBehaviour {
 		if (anim.GetBool("detected") && (Player.position - transform.position).magnitude < 0.45f && Time.time > fireuse)
 		{
 			fireuse = Time.time + firetime;
-			player.GetComponent<PlayerStatus>().HP -=
-				damage - (damage * player.GetComponent<PlayerStatus>().armor / 100);
+			Player.GetComponent<PlayerStatus>().HP -=
+				damage - (damage * Player.GetComponent<PlayerStatus>().armor / 100);
+		}
+		if (Player.GetComponent<PlayerStatus>().isdead)
+		{
+			Players = GameObject.FindGameObjectsWithTag("Player");
+			isFocused = false;
+			Player = Players[0].transform;
 		}
     }
+
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("porte"))
+		{
+			other.gameObject.GetComponent<porte>().HP = 0;
+		}
+	}
 }
