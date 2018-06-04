@@ -25017,7 +25017,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1753420844769216, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114734912971050024, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab,
         type: 2}
@@ -52511,6 +52511,20 @@ Prefab:
       propertyPath: deathcam
       value: 
       objectReference: {fileID: 1790290817}
+    - target: {fileID: 82930812932780320, guid: b1925c477c41cdd408ead37177c03caa,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e37e860ca49f2df4387390af8cbe4c09, type: 3}
+    - target: {fileID: 82930812932780320, guid: b1925c477c41cdd408ead37177c03caa,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991650202108836, guid: b1925c477c41cdd408ead37177c03caa, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1925c477c41cdd408ead37177c03caa, type: 2}
   m_IsPrefabParent: 0

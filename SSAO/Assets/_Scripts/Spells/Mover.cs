@@ -38,7 +38,10 @@ public class Mover : MonoBehaviour
             if (other.CompareTag("enemy"))
             {
 	            Destroy(gameObject);
-                GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+	            if (ImpactEffect != null)
+	            {
+		            Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+	            }
                 if (!other.GetComponent<enemyMovement>().isFocused)
                 {
                    other.GetComponent<enemyMovement>().hint = true;
