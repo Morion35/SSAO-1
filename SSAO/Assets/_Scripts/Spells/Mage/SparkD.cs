@@ -10,14 +10,16 @@ public class SparkD : MonoBehaviour
 	private float damage = 2.5f;
 	private float time;
 	private float _time;
-	
+	private AudioSource audio;
 	private GameObject[] enemies;
 	private GameObject[] players;
 	
 	void Start ()
 	{
+		audio = GetComponent<AudioSource>();
 		enemies = GameObject.FindGameObjectsWithTag("enemy");
 		players = GameObject.FindGameObjectsWithTag("Player");
+		audio.Play();
 		foreach (GameObject enemy in enemies)
 		{
 			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 0.7f)

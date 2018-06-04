@@ -147,7 +147,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (GetComponent<PlayerStatus>().armor < 30)
                 {
                     GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
-                    GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                    if (Launcher != null)
+                    {
+                        GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                    }
                 }
                 else
                 {

@@ -6,9 +6,11 @@ public class LifeBallDH : MonoBehaviour {
 
 	private float cost = 5f;
 	private float damage = 5f;
-	
+
+	private AudioSource audio;
 	void Awake ()
 	{
+		audio = GetComponent<AudioSource>();
 		GetComponentInParent<PlayerStatus>().mana -= cost;
 	}
 
@@ -20,7 +22,7 @@ public class LifeBallDH : MonoBehaviour {
 		}
 		if (other.CompareTag("Player"))
 		{
-			other.GetComponent<PlayerStatus>().HP += (int)damage/2;
+			other.GetComponent<PlayerStatus>().HP += (int)damage*2;
 		}
 	}
 }
