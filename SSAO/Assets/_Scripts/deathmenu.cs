@@ -12,6 +12,8 @@ public class deathmenu : MonoBehaviour {
 
 	public void MainMenu()
 	{
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+		SceneManager.LoadScene(0);
+		
 	}
 }
