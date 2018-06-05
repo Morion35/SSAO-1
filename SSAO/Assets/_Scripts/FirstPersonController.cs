@@ -45,6 +45,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_Jumping;
         [SerializeField] private AudioSource m_AudioSource;
 
+
+        public GameObject PauseMenu;
         public GameObject skillshot;
         public GameObject impulsion;
         public GameObject spell1;
@@ -65,6 +67,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextSpell;
         private float nextUlt;
         private float mana;
+
+        public bool paused;
         
         // Use this for initialization
         private void Awake()
@@ -85,10 +89,37 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            
+            if (Input.GetButtonDown("Cancel"))
+            {
+                if (!PauseMenu.activeSelf && !paused)
+                {
+                    Time.timeScale = 0f;
+                    PauseMenu.SetActive(true);
+                    paused = true;
+                    m_MouseLook.SetCursorLock(false);
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                    PauseMenu.SetActive(false);
+                    m_MouseLook.SetCursorLock(true);
+                    paused = false;
+                }
+            }
+            if (!paused && PauseMenu.activeSelf)
+            {
+                Time.timeScale = 1f;
+                PauseMenu.SetActive(false);
+                m_MouseLook.SetCursorLock(true);
+            }
+            if (paused)
+            {
+                return;
+            }
             mana = GetComponent<PlayerStatus>().mana;
                 
             RotateView();
+            
 
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -174,6 +205,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            if (paused)
+            {
+                return;
+            }
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
