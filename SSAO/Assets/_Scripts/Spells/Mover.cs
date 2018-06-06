@@ -28,7 +28,7 @@ public class Mover : MonoBehaviour
     
         if (!other.CompareTag("Spell"))
         {
-	        
+	        Destroy(gameObject);
 	        if (other.CompareTag("porte"))
 	        {
 		        Destroy(gameObject);
