@@ -29,32 +29,21 @@ public class PlayerShooting : NetworkBehaviour {
 	
 	bool canShoot;
 	
-	// Use this for initialization
-	void Start ()
-	{
-
-		if (isLocalPlayer)
-		{
-			canShoot = true;
-		}
-		
-	}
-	
+	[Command]
 	private void CmdSkiishot()
 	{
 		GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
+		NetworkServer.Spawn(clone);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (!canShoot)
+		if (!isLocalPlayer)
 		{
 			return;
 		}
-		mana = GetComponent<PlayerStatus>().mana;
-
-		
+		mana = GetComponent<PSNetwork>().mana;
 		if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
 		{
 			nextUse = Time.time + UseRate;
@@ -68,6 +57,7 @@ public class PlayerShooting : NetworkBehaviour {
 			Vector3 dash = transform.forward * 2;
 			transform.position += dash;
 			GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
+			NetworkServer.Spawn(clone1);
 		}
             
 		if (Input.GetButton("Fire3") && Time.time > nextSpell && mana >= 60f)

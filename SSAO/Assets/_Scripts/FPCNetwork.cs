@@ -68,26 +68,31 @@ public class FPCNetwork : NetworkBehaviour
     
         
         // Use this for initialization
-        private void Awake()
+        
+
+    private void Start()
+    {
+        if (!isLocalPlayer)
         {
-            m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = GetComponentInChildren<Camera>();
-            m_OriginalCameraPosition = m_Camera.transform.localPosition;
-            m_FovKick.Setup(m_Camera);
-            m_HeadBob.Setup(m_Camera, m_StepInterval);
-            m_StepCycle = 0f;
-            m_NextStep = m_StepCycle/2f;
-            m_Jumping = false;
-            m_AudioSource = GetComponent<AudioSource>();
-			m_MouseLook.Init(transform , m_Camera.transform);
+            return;
         }
+        m_CharacterController = GetComponent<CharacterController>();
+        m_Camera = FindObjectOfType<Camera>();
+        m_OriginalCameraPosition = m_Camera.transform.localPosition;
+        m_StepCycle = 0f;
+        m_NextStep = m_StepCycle/2f;
+        m_Jumping = false;
+        m_AudioSource = GetComponent<AudioSource>();
+        m_MouseLook.Init(transform, m_Camera.transform);
+    }
 
-
-        // Update is called once per frame
+    // Update is called once per frame
         private void Update()
         {
             if (!isLocalPlayer)
             {
+                Destroy(m_Camera);
+                enabled = false;
                 return;
             }
             // mana = GetComponent<PlayerStatus>().mana;
@@ -102,7 +107,6 @@ public class FPCNetwork : NetworkBehaviour
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
-                StartCoroutine(m_JumpBob.DoBobCycle());
                 PlayLandingSound();
                 m_MoveDir.y = 0f;
                 m_Jumping = false;
@@ -155,8 +159,6 @@ public class FPCNetwork : NetworkBehaviour
             m_NextStep = m_StepCycle + .5f;
         }
 
-
-        [Command]
         private void CmdMove(float speed)
         {
             
@@ -195,6 +197,8 @@ public class FPCNetwork : NetworkBehaviour
         {
             if (!isLocalPlayer)
             {
+                Destroy(m_Camera);
+                enabled = false;
                 return;
             }
             float speed;
@@ -248,8 +252,6 @@ public class FPCNetwork : NetworkBehaviour
         }
 
 
-    
-    [Command]
         private void CmdProgressStepCycle(float speed)
         {
             m_AudioSource.maxDistance = 0.5f;
@@ -291,8 +293,6 @@ public class FPCNetwork : NetworkBehaviour
             m_FootstepSounds[0] = m_AudioSource.clip;
         }
 
-    [Command]
-    
         private void CmdUpdateCameraPosition(float speed)
         {
             Vector3 newCameraPosition;
@@ -316,8 +316,6 @@ public class FPCNetwork : NetworkBehaviour
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
-
-    
         private void GetInput(out float speed)
         {
             // Read input

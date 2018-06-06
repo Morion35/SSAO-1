@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Networking;
 using Component = UnityEngine.Component;
 
-public class Mover : MonoBehaviour
+public class Mover : NetworkBehaviour
 {
 	public float speed;
 	public GameObject ImpactEffect;
