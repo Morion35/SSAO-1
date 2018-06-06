@@ -10,19 +10,21 @@ public class SparkD : MonoBehaviour
 	private float damage = 2.5f;
 	private float time;
 	private float _time;
-	
+	private AudioSource audio;
 	private GameObject[] enemies;
 	private GameObject[] players;
 	
 	void Start ()
 	{
+		audio = GetComponent<AudioSource>();
 		enemies = GameObject.FindGameObjectsWithTag("enemy");
 		players = GameObject.FindGameObjectsWithTag("Player");
+		audio.Play();
 		foreach (GameObject enemy in enemies)
 		{
 			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 0.7f)
 			{
-				enemy.GetComponent<enemyMovement>().HP -= (int)damage;
+				enemy.GetComponent<enemyMovement>().HP -= damage;
 				enemy.GetComponent<NavMeshAgent>().speed /= 2;
 			}
 		}
@@ -30,7 +32,7 @@ public class SparkD : MonoBehaviour
 		{
 			if ((player.transform.position - transform.position).magnitude <= 0.7f)
 			{
-				player.GetComponent<PlayerStatus>().HP -= (int)(damage)/2;
+				player.GetComponent<PlayerStatus>().HP -= (damage - (damage*player.GetComponent<PlayerStatus>().armor/100));
 			}
 		}
 		time = Time.time;
@@ -43,11 +45,10 @@ public class SparkD : MonoBehaviour
 		{
 			foreach (GameObject enemy in enemies)
 			{
-				if( enemy != null)
+				if( enemy != null && GameObject.Find("Shield") == null)
 				{
 					enemy.GetComponent<NavMeshAgent>().speed = 1;
 				}
-				
 			}
 		}
 	}

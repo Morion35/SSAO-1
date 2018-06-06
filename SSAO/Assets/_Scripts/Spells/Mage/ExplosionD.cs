@@ -30,7 +30,7 @@ public class ExplosionD : MonoBehaviour {
 		{
 			if ((player.transform.position - transform.position).magnitude <= 1.5f)
 			{
-				player.GetComponent<PlayerStatus>().HP -= damage;
+				player.GetComponent<PlayerStatus>().HP -= (damage - (damage*player.GetComponent<PlayerStatus>().armor/100));
 			}
 		}
 	}

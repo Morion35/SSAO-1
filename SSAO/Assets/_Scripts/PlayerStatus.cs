@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -11,28 +13,59 @@ public class PlayerStatus : MonoBehaviour
 
 	public Image HP_bar;
 
+	public GameObject game_over;
+
 	public float maxmana = 100;
 
 	public float maxHP = 100;
 
 	public float mana;
 
+	public float armor;
+
+	public float _basearmor;
+
 	public float HP;
+
+	public bool isdead = false;
+
+	public GameObject deathcam;
+
+	//public GameObject quitbutton;
+
+	//public GameObject MainMenuButton;
+
+	private float timetocam = 5f;
+
+	private float timeofdeath = 0f;
 	// Use this for initialization
 	void Start ()
 	{
 		anim = GetComponent<Animator>();
 		HP = maxHP;
+		_basearmor = armor;
 		mana = maxmana;
 	}
 	
 	// Update is called once per frame
 	void LateUpdate ()
 	{
-		if (HP <= 0)
+		if (!isdead && HP <= 0)
 		{
+			timeofdeath = Time.time + timetocam;
+			isdead = true;
 			anim.SetBool("death", true);
-			Destroy(gameObject, 3);
+			game_over.SetActive(true);
+			tag = "Untagged";
+			GetComponent<FirstPersonController>().enabled = false;
+			return;
+		}
+		if (isdead && Time.time >= timeofdeath)
+		{
+			game_over.SetActive(false);
+			deathcam.SetActive(true);
+			gameObject.GetComponent<FirstPersonController>().m_MouseLook.SetCursorLock(false);
+			gameObject.SetActive(false);
 			return;
 		}
 		if (mana < maxmana)
@@ -47,6 +80,7 @@ public class PlayerStatus : MonoBehaviour
 		
 		HP_bar.fillAmount = HP / maxHP;
 		mana_bar.fillAmount = mana / maxmana;
-		
 	}
+
+	
 }

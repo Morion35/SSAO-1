@@ -34,8 +34,9 @@ public class PlayerShooting : NetworkBehaviour {
 	{
 
 		if (isLocalPlayer)
+		{
 			canShoot = true;
-
+		}
 	}
 	
 	// Update is called once per frame
@@ -43,7 +44,10 @@ public class PlayerShooting : NetworkBehaviour {
 	{
 
 		if (!canShoot)
+		{
 			return;
+		}
+			
 		
 		
 		if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
