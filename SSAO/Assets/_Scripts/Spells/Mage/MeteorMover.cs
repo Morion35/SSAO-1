@@ -6,10 +6,16 @@ public class MeteorMover : MonoBehaviour {
 
 	public GameObject ImpactEffect;
 	public GameObject meteorTrigger;
-	
+	private AudioSource audio;
+
+	private void Awake()
+	{
+		audio = GetComponent<AudioSource>();
+	}
 
 	private void FixedUpdate()
 	{
+		audio.time = 0.3f + audio.time % 0.35f;
 		if (transform.position.y <= 0.6f)
 		{
 			Destroy(gameObject);
