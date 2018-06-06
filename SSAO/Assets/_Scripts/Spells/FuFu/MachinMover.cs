@@ -2,24 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachinMover : MonoBehaviour {
+public class MachinMover : MonoBehaviour
+{
+	public GameObject Impact;
+	private float cost = 20f;
 
-	public GameObject ImpactEffect;
-
-	private float _time;
-	private float time = 0.75f;
-
-	private void Start()
+	private float time;
+	
+	// Use this for initialization
+	void Start ()
 	{
-		_time = Time.time;
+		time = Time.time;
+		GetComponentInParent<PlayerStatus>().mana -= cost;
 	}
-
-	private void Update()
-	{
-		if (time <= Time.time - _time)
+	
+	// Update is called once per frame
+	void Update () {
+		if (Time.time - time > 0.75f)
 		{
+			GameObject clone = Instantiate(Impact, transform.position, transform.rotation);
 			Destroy(gameObject);
-			GameObject clone = Instantiate(ImpactEffect, transform.position, transform.rotation);
 		}
 	}
 }

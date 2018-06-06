@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Impulsion3D : MonoBehaviour {
-	
+public class KnifeD : MonoBehaviour {
+
+	private float cost = 5f;
 	private float damage = 40f;
+	
+	void Awake ()
+	{
+		GetComponentInParent<PlayerStatus>().mana -= cost;
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("enemy"))
 		{
 			if (!(other.GetComponent<enemyMovement>().Player == GameObject.Find("FuFu").transform &&
-			    other.GetComponent<enemyMovement>().isFocused))
+			      other.GetComponent<enemyMovement>().isFocused))
 			{
 				other.GetComponent<enemyMovement>().HP -= damage;
 			}
@@ -20,7 +26,7 @@ public class Impulsion3D : MonoBehaviour {
 				other.GetComponent<enemyMovement>().HP -= damage / 2;
 			}
 		}
-		if (other.CompareTag("Player") && (other.transform.position - transform.position).magnitude >= 0.05f && !(other.gameObject == GameObject.Find("FuFu")))
+		if (other.CompareTag("Player"))
 		{
 			other.GetComponent<PlayerStatus>().HP -= (damage - (damage*other.GetComponent<PlayerStatus>().armor/100));
 		}
