@@ -16,11 +16,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] public float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
-        [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
+        [SerializeField] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
         [SerializeField] private float m_GravityMultiplier;
-        [SerializeField] private MouseLook m_MouseLook;
+        [SerializeField] public MouseLook m_MouseLook;
         [SerializeField] private bool m_UseFovKick;
         [SerializeField] private FOVKick m_FovKick = new FOVKick();
         [SerializeField] private bool m_UseHeadBob;
@@ -31,20 +31,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
-        private Camera m_Camera;
-        private bool m_Jump;
-        private float m_YRotation;
-        private Vector2 m_Input;
-        public Vector3 m_MoveDir = Vector3.zero;
-        private CharacterController m_CharacterController;
-        private CollisionFlags m_CollisionFlags;
-        private bool m_PreviouslyGrounded;
-        private Vector3 m_OriginalCameraPosition;
-        private float m_StepCycle;
-        private float m_NextStep;
-        private bool m_Jumping;
-        private AudioSource m_AudioSource;
+        [SerializeField] private Camera m_Camera;
+        [SerializeField] private bool m_Jump;
+        [SerializeField] private float m_YRotation;
+        [SerializeField] private Vector2 m_Input;
+        [SerializeField] public Vector3 m_MoveDir = Vector3.zero;
+        [SerializeField] private CharacterController m_CharacterController;
+        [SerializeField] private CollisionFlags m_CollisionFlags;
+        [SerializeField] private bool m_PreviouslyGrounded;
+        [SerializeField] private Vector3 m_OriginalCameraPosition;
+        [SerializeField] private float m_StepCycle;
+        [SerializeField] private float m_NextStep;
+        [SerializeField] private bool m_Jumping;
+        [SerializeField] private AudioSource m_AudioSource;
 
+
+        public GameObject PauseMenu;
         public GameObject skillshot;
         public GameObject impulsion;
         public GameObject spell1;
@@ -65,6 +67,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextSpell;
         private float nextUlt;
         private float mana;
+
+        public bool paused;
         
         // Use this for initialization
         private void Awake()
@@ -85,10 +89,37 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            
+            if (Input.GetButtonDown("Cancel"))
+            {
+                if (!PauseMenu.activeSelf && !paused)
+                {
+                    Time.timeScale = 0f;
+                    PauseMenu.SetActive(true);
+                    paused = true;
+                    m_MouseLook.SetCursorLock(false);
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                    PauseMenu.SetActive(false);
+                    m_MouseLook.SetCursorLock(true);
+                    paused = false;
+                }
+            }
+            if (!paused && PauseMenu.activeSelf)
+            {
+                Time.timeScale = 1f;
+                PauseMenu.SetActive(false);
+                m_MouseLook.SetCursorLock(true);
+            }
+            if (paused)
+            {
+                return;
+            }
             mana = GetComponent<PlayerStatus>().mana;
                 
             RotateView();
+            
 
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -147,7 +178,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (GetComponent<PlayerStatus>().armor < 30)
                 {
                     GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
-                    GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                    if (Launcher != null)
+                    {
+                        GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                    }
                 }
                 else
                 {
@@ -171,6 +205,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            if (paused)
+            {
+                return;
+            }
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
