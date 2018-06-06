@@ -37,23 +37,29 @@ public class PlayerShooting : NetworkBehaviour {
 		{
 			canShoot = true;
 		}
+		
+	}
+	
+	private void CmdSkiishot()
+	{
+		GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-
 		if (!canShoot)
 		{
 			return;
 		}
-			
-		
+		mana = GetComponent<PlayerStatus>().mana;
+
 		
 		if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
 		{
 			nextUse = Time.time + UseRate;
-			GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
+			mana -= 5f;
+			CmdSkiishot();
 		}
             
 		if (Input.GetButton("Fire2") && Time.time > nextDash && mana >= 20f)
@@ -79,4 +85,5 @@ public class PlayerShooting : NetworkBehaviour {
 		}
 		
 	}
+
 }

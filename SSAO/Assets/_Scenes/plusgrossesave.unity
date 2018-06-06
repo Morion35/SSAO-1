@@ -78275,16 +78275,6 @@ Prefab:
       propertyPath: deathcam
       value: 
       objectReference: {fileID: 1790290817}
-    - target: {fileID: 114896465186873524, guid: 29b7eda9648e70242a623b92f17dd7fe,
-        type: 2}
-      propertyPath: m_RunSpeed
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114896465186873524, guid: 29b7eda9648e70242a623b92f17dd7fe,
-        type: 2}
-      propertyPath: m_RunstepLenghten
-      value: 1.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29b7eda9648e70242a623b92f17dd7fe, type: 2}
   m_IsPrefabParent: 0
