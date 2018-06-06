@@ -19082,11 +19082,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 285d19513213cb44cac122fd1e9e4d3d, type: 3}
---- !u!1 &546466222 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1095375522601876, guid: 29b7eda9648e70242a623b92f17dd7fe,
-    type: 2}
-  m_PrefabInternal: {fileID: 2058249975}
 --- !u!1 &546716833 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1825048330139294, guid: 392b3e958adbfd643b27fdb235d8cd86,
@@ -53778,16 +53773,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 195024872477197264, guid: 8e46610095eb7ba43956209572d81503,
-        type: 2}
-      propertyPath: m_Speed
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 195009493126840182, guid: 8e46610095eb7ba43956209572d81503,
-        type: 2}
-      propertyPath: m_Speed
-      value: 1.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e46610095eb7ba43956209572d81503, type: 2}
   m_IsPrefabParent: 0
@@ -78285,11 +78270,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114004616873668092, guid: 29b7eda9648e70242a623b92f17dd7fe,
+    - target: {fileID: 114861266863947172, guid: 29b7eda9648e70242a623b92f17dd7fe,
         type: 2}
-      propertyPath: cam
+      propertyPath: deathcam
       value: 
-      objectReference: {fileID: 546466222}
+      objectReference: {fileID: 1790290817}
+    - target: {fileID: 114896465186873524, guid: 29b7eda9648e70242a623b92f17dd7fe,
+        type: 2}
+      propertyPath: m_RunSpeed
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114896465186873524, guid: 29b7eda9648e70242a623b92f17dd7fe,
+        type: 2}
+      propertyPath: m_RunstepLenghten
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29b7eda9648e70242a623b92f17dd7fe, type: 2}
   m_IsPrefabParent: 0
