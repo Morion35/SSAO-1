@@ -318,7 +318,6 @@ public class FPCNetwork : NetworkBehaviour
 
 
     
-        
         private void GetInput(out float speed)
         {
             // Read input
@@ -351,8 +350,6 @@ public class FPCNetwork : NetworkBehaviour
             }
         }
     
-        
-        
         private void RotateView()
         {
             m_MouseLook.LookRotation (transform, m_Camera.transform);

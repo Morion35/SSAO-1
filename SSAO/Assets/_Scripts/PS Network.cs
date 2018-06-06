@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class PlayerStatus : MonoBehaviour
-{
+public class PSNetwork : NetworkBehaviour {
+
 	private Animator anim;
 
 	public Image mana_bar;
@@ -51,6 +50,8 @@ public class PlayerStatus : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate ()
 	{
+		if (!isLocalPlayer)
+			return;
 		if (!isdead && HP <= 0)
 		{
 			timeofdeath = Time.time + timetocam;

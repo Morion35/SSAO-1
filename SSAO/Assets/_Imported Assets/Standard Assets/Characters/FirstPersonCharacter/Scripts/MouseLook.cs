@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-
 namespace UnityStandardAssets.Characters.FirstPerson
 {
     [Serializable]
@@ -28,6 +27,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
+        
         public void LookRotation(Transform character, Transform camera)
         {
             float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
