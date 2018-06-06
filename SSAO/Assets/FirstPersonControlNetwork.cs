@@ -1,5 +1,5 @@
-using System;
-using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -8,9 +8,10 @@ using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : MonoBehaviour
+
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
+    public class FirstPersonControlNetwork : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] public float m_WalkSpeed;
@@ -67,8 +68,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float nextUlt;
         [SerializeField] private float mana;
 
-        [SerializeField]public bool paused;
-        
         // Use this for initialization
         private void Awake()
         {
@@ -88,33 +87,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetButtonDown("Cancel"))
-            {
-                if (!PauseMenu.activeSelf && !paused)
-                {
-                    Time.timeScale = 0f;
-                    PauseMenu.SetActive(true);
-                    paused = true;
-                    m_MouseLook.SetCursorLock(false);
-                }
-                else
-                {
-                    Time.timeScale = 1f;
-                    PauseMenu.SetActive(false);
-                    m_MouseLook.SetCursorLock(true);
-                    paused = false;
-                }
-            }
-            if (!paused && PauseMenu.activeSelf)
-            {
-                Time.timeScale = 1f;
-                PauseMenu.SetActive(false);
-                m_MouseLook.SetCursorLock(true);
-            }
-            if (paused)
-            {
-                return;
-            }
+        
+            Time.timeScale = 1f;
+            m_MouseLook.SetCursorLock(true);
+            
             mana = GetComponent<PlayerStatus>().mana;
                 
             RotateView();
@@ -204,10 +180,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
-            if (paused)
-            {
-                return;
-            }
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
