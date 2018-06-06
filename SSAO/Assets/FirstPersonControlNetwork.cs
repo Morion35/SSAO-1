@@ -1,17 +1,18 @@
-using System;
-using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Object = System.Object;
 using Random = UnityEngine.Random;
-using UnityEngine.Networking;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
-    public class FirstPersonController : MonoBehaviour
+
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
+    public class FirstPersonControlNetwork : NetworkBehaviour
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] public float m_WalkSpeed;
@@ -68,8 +69,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float nextUlt;
         [SerializeField] private float mana;
 
-        [SerializeField]public bool paused;
-        
         // Use this for initialization
         private void Awake()
         {
@@ -89,33 +88,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetButtonDown("Cancel"))
+        
+            
+            if (!isLocalPlayer)
             {
-                if (!PauseMenu.activeSelf && !paused)
-                {
-                    Time.timeScale = 0f;
-                    PauseMenu.SetActive(true);
-                    paused = true;
-                    m_MouseLook.SetCursorLock(false);
-                }
-                else
-                {
-                    Time.timeScale = 1f;
-                    PauseMenu.SetActive(false);
-                    m_MouseLook.SetCursorLock(true);
-                    paused = false;
-                }
-            }
-            if (!paused && PauseMenu.activeSelf)
-            {
-                Time.timeScale = 1f;
-                PauseMenu.SetActive(false);
-                m_MouseLook.SetCursorLock(true);
-            }
-            if (paused)
-            {
+                // exit from update if this is not the local player
                 return;
             }
+            
+            Time.timeScale = 1f;
+            m_MouseLook.SetCursorLock(true);
+            
             mana = GetComponent<PlayerStatus>().mana;
                 
             RotateView();
@@ -138,7 +121,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = 0f;
             }
-            if (Input.GetButtonDown("Fire1") && Time.time > nextUse && mana >= 5f)
+            if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
             {
                 nextUse = Time.time + UseRate;
                 GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
@@ -152,12 +135,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     Vector3 dash = transform.forward * 2;
                     transform.position += dash;
                     GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
+                
                 }
+            
                 if (GetComponent<PlayerStatus>().armor == 30f)
                 {
                     Vector3 dash = transform.up * 2.5f;
                     transform.position += dash;
                     GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
+                
                 }
                 else
                 {
@@ -174,24 +160,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)
             {
                 nextUlt = Time.time + Ultrate;
-                if (GetComponent<PlayerStatus>().armor < 30)
+                float armor = GetComponent<PlayerStatus>().armor;
+
+                if (armor < 30)
                 {
                     GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
+
                     if (Launcher != null)
                     {
                         GameObject clone3 = Instantiate(Launcher, shotspawn.position, shotspawn.rotation, transform);
+                   
                     }
+
                 }
                 else
                 {
                     GameObject clone3 = Instantiate(Launcher, transform.position + new Vector3(0, 0.25f, 0), new Quaternion(1, 0, 0, 0),
                         transform);
+                
                 }
             }
+            
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
-
+        
         private void PlayLandingSound()
         {
             m_AudioSource.clip = m_LandSound;
@@ -204,10 +197,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
-            if (paused)
-            {
-                return;
-            }
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
