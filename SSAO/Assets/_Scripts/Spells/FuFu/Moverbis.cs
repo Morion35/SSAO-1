@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Moverbis : MonoBehaviour {
 
+	
+	
 	public float speed;
 	public GameObject ImpactEffect;
 

@@ -35,7 +35,7 @@ public class Mover : MonoBehaviour
 		        other.GetComponent<porte>().HP -= 20;
 	        }
 	        
-            else if (other.CompareTag("enemy"))
+            if (other.CompareTag("enemy"))
             {
 	            Destroy(gameObject);
 	            if (ImpactEffect != null)
@@ -49,7 +49,7 @@ public class Mover : MonoBehaviour
                 }
             }
 
-	        else if (other.CompareTag("Player"))
+	        if (other.CompareTag("Player"))
 	        {
 		        if (GetComponent<MeshFilter>() == null)
 		        {

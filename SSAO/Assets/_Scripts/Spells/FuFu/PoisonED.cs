@@ -6,7 +6,7 @@ using UnityEngine;
 public class PoisonED : MonoBehaviour
 {
 
-	public float damage = 1f;
+	public float damage = 5f;
 
 	public GameObject Curse;
 	private enemyMovement enemy;
