@@ -33,6 +33,7 @@ public class SwordMover : MonoBehaviour {
 
 			if (other.CompareTag("enemy"))
 			{
+				Destroy(gameObject);
 				if (!other.GetComponent<enemyMovement>().isFocused)
 				{
 					other.GetComponent<enemyMovement>().hint = true;

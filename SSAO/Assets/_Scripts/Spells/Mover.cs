@@ -57,11 +57,6 @@ public class Mover : MonoBehaviour
 			        Destroy(gameObject);
 		        }
 	        }
-	        else
-	        {
-		        Destroy(gameObject);
-	        }
-	        
         }
     }
 

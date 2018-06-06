@@ -46,29 +46,29 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioSource m_AudioSource;
 
 
-        [SerializeField] public GameObject PauseMenu;
-        [SerializeField] public GameObject skillshot;
-        [SerializeField] public GameObject impulsion;
-        [SerializeField] public GameObject spell1;
-        [SerializeField] public GameObject Ulti;
-        [SerializeField] public GameObject Launcher;
-        [SerializeField] public Transform shotspawn;
-        [SerializeField] public float UseRate;
-        [SerializeField] public float SpellRate;
-        [SerializeField] public float Ultrate;
-        [SerializeField] public float DashRate;
-        [SerializeField] public GameObject Object1;
-        [SerializeField] public GameObject Object2;
-        [SerializeField] public GameObject Object3;
-        [SerializeField] public GameObject Object4;
+        public GameObject PauseMenu;
+        public GameObject skillshot;
+        public GameObject impulsion;
+        public GameObject spell1;
+        public GameObject Ulti;
+        public GameObject Launcher;
+        public Transform shotspawn;
+        public float UseRate;
+        public float SpellRate;
+        public float Ultrate;
+        public float DashRate;
+        public GameObject Object1;
+        public GameObject Object2;
+        public GameObject Object3;
+        public GameObject Object4;
         
-        [SerializeField] private float nextDash;
-        [SerializeField] private float nextUse;
-        [SerializeField] private float nextSpell;
-        [SerializeField] private float nextUlt;
-        [SerializeField] private float mana;
+        private float nextDash;
+        private float nextUse;
+        private float nextSpell;
+        private float nextUlt;
+        private float mana;
 
-        [SerializeField]public bool paused;
+        public bool paused;
         
         // Use this for initialization
         private void Awake()
@@ -169,6 +169,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 nextSpell = Time.time + SpellRate;
                 GameObject clone = Instantiate(spell1, shotspawn.position, shotspawn.rotation, transform);
+                
             }
             
             if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)
