@@ -147,13 +147,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButton("Fire2") && Time.time > nextDash && mana >= 20f)
             {
                 nextDash = Time.time + DashRate;
-                if (GetComponent<PlayerStatus>().armor < 30f)
+                if (GetComponent<PlayerStatus>()._basearmor < 30f)
                 {
                     Vector3 dash = transform.forward * 2;
                     transform.position += dash;
                     GameObject clone1 = Instantiate(impulsion, transform.position, transform.rotation, transform);
                 }
-                if (GetComponent<PlayerStatus>().armor == 30f)
+                if (GetComponent<PlayerStatus>()._basearmor == 30f)
                 {
                     Vector3 dash = transform.up * 2.5f;
                     transform.position += dash;
@@ -174,7 +174,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)
             {
                 nextUlt = Time.time + Ultrate;
-                if (GetComponent<PlayerStatus>().armor < 30)
+                if (GetComponent<PlayerStatus>()._basearmor < 30)
                 {
                     GameObject clone2 = Instantiate(Ulti, transform.position, transform.rotation, transform);
                     if (Launcher != null)
