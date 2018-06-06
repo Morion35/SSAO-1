@@ -33,7 +33,7 @@ public class enemyMovement : MonoBehaviour {
 
 	public float firetime = 3f;
 
-	public float damage = 25f;
+	public float damage = 15f;
 
 	private float fireuse;
 
