@@ -35,7 +35,7 @@ public class Mover : MonoBehaviour
 		        other.GetComponent<porte>().HP -= 20;
 	        }
 	        
-            if (other.CompareTag("enemy"))
+            else if (other.CompareTag("enemy"))
             {
 	            Destroy(gameObject);
                 GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
@@ -46,7 +46,7 @@ public class Mover : MonoBehaviour
                 }
             }
 
-	        if (other.CompareTag("Player"))
+	        else if (other.CompareTag("Player"))
 	        {
 		        if (GetComponent<MeshFilter>() == null)
 		        {
@@ -54,6 +54,11 @@ public class Mover : MonoBehaviour
 			        Destroy(gameObject);
 		        }
 	        }
+	        else
+	        {
+		        Destroy(gameObject);
+	        }
+	        
         }
     }
 
