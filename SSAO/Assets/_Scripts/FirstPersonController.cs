@@ -168,7 +168,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 nextSpell = Time.time + SpellRate;
                 GameObject clone = Instantiate(spell1, shotspawn.position, shotspawn.rotation, transform);
-                
             }
             
             if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)

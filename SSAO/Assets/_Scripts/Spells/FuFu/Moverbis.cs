@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordMover : MonoBehaviour {
+public class Moverbis : MonoBehaviour {
 
+	
+	
 	public float speed;
-
 	public GameObject ImpactEffect;
 
 	private Transform initial;
@@ -22,17 +23,20 @@ public class SwordMover : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-
+    
 		if (!other.CompareTag("Spell"))
 		{
+	        
 			if (other.CompareTag("porte"))
 			{
 				Destroy(gameObject);
 				other.GetComponent<porte>().HP -= 20;
 			}
-
-			if (other.CompareTag("enemy"))
+	        
+			else if (other.CompareTag("enemy"))
 			{
+				Destroy(gameObject);
+				GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation, other.transform);
 				if (!other.GetComponent<enemyMovement>().isFocused)
 				{
 					other.GetComponent<enemyMovement>().hint = true;
@@ -40,16 +44,19 @@ public class SwordMover : MonoBehaviour {
 				}
 			}
 
-			if (other.CompareTag("Player"))
+			else if (other.CompareTag("Player"))
+			{
+				if (GetComponent<MeshFilter>() == null)
+				{
+					GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation, other.transform);
+					Destroy(gameObject);
+				}
+			}
+			else
 			{
 				Destroy(gameObject);
 			}
-			
-			else
-			{
-				rb.velocity = new Vector3(0,0,0);
-				transform.SetPositionAndRotation(transform.position + (transform.forward/10), transform.rotation);
-			}
+	        
 		}
 	}
 }
