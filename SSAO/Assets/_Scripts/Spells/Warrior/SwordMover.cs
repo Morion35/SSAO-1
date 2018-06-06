@@ -31,7 +31,7 @@ public class SwordMover : MonoBehaviour {
 				other.GetComponent<porte>().HP -= 20;
 			}
 
-			if (other.CompareTag("enemy"))
+			else if (other.CompareTag("enemy"))
 			{
 				if (!other.GetComponent<enemyMovement>().isFocused)
 				{
@@ -40,7 +40,7 @@ public class SwordMover : MonoBehaviour {
 				}
 			}
 
-			if (other.CompareTag("Player"))
+			else if (other.CompareTag("Player"))
 			{
 				Destroy(gameObject);
 			}
