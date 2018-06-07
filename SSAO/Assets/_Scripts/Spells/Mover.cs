@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Networking;
 using Component = UnityEngine.Component;
-public class Mover : NetworkBehaviour
+public class Mover : MonoBehaviour
 {
 	public float speed;
 	public GameObject ImpactEffect;
@@ -23,46 +23,40 @@ public class Mover : NetworkBehaviour
 		rb.velocity = transform.forward * speed;
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
+	private void OnTriggerEnter(Collider other)
+	{
     
-        if (!other.CompareTag("Spell"))
-        {
-	        if (other.CompareTag("porte"))
-	        {
-		        Destroy(gameObject);
-		        other.GetComponent<porte>().HP -= 20;
-	        }
+		if (!other.CompareTag("Spell"))
+		{
+			if (other.CompareTag("porte"))
+			{
+				Destroy(gameObject);
+				other.GetComponent<porte>().HP -= 20;
+			}
 	        
-            if (other.CompareTag("enemy"))
-            {
-	            if (!isServer)
-	            {
-		            return;
-	            }
-	            Destroy(gameObject);
-	            if (ImpactEffect != null)
-	            {
-		            GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0, 0.25f, 0), other.transform.rotation);
-		            NetworkServer.Spawn(clone);
-	            }
-                if (!other.GetComponent<EMNetwork>().isFocused)
-                {
-                   other.GetComponent<EMNetwork>().hint = true;
-                   other.GetComponent<EMNetwork>().Player = initial;
-                }
-            }
+			if (other.CompareTag("enemy"))
+			{
+				Destroy(gameObject);
+				if (ImpactEffect != null)
+				{
+					GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0, 0.25f, 0), other.transform.rotation);
+				}
+				if (!other.GetComponent<enemyMovement>().isFocused)
+				{
+					other.GetComponent<enemyMovement>().hint = true;
+					other.GetComponent<enemyMovement>().Player = initial;
+				}
+			}
 
-	        if (other.CompareTag("Player"))
-	        {
-		        if (GetComponent<MeshFilter>() == null && isServer)
-		        {
-			        GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
-			        NetworkServer.Spawn(clone);
-			        Destroy(gameObject);
-		        }
-	        }
-        }
-    }
+			if (other.CompareTag("Player"))
+			{
+				if (GetComponent<MeshFilter>() == null)
+				{
+					GameObject clone = Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+					Destroy(gameObject);
+				}
+			}
+		}
+	}
 
 }
