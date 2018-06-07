@@ -4,6 +4,8 @@ title: SSAO
 tagline: Site pour le jeu SSAO
 ---
 
+![](https://github.com/Wes974/SSAO/raw/master/docs/assets/img/logo.png)
+
 #### Présentation
 
 **SSAO** sera un jeu de tir en coopération. Ce sera un jeu à la première personne, et les joueurs pourront y jouer de 1 à 4 personnes.
