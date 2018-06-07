@@ -56,39 +56,55 @@ Nous avons utilisés les logiciels suivant lors de la réalisation de notre proj
 
 ### Assets
 
-#### Assets employés pour la map :
+##### Assets employés pour la map :
 
 [Storage Building](https://assetstore.unity.com/packages/3d/environments/industrial/storage-building-50430)
+
 [Building Kit 1](https://assetstore.unity.com/packages/3d/environments/industrial/building-kit-1-68179)
+
 [Unity Particle Pack](https://assetstore.unity.com/packages/essentials/asset-packs/unity-particle-pack-73777)
+
 [Victorian PBR Streetlights](https://assetstore.unity.com/packages/3d/props/exterior/victorian-pbr-streetlights-50828)
+
 [Victorian Pie Shop](https://assetstore.unity.com/packages/3d/environments/urban/victorian-pie-shop-21541)
+
 [Pipes Kit](https://assetstore.unity.com/packages/3d/props/industrial/pipes-kit-64170)
+
 [Hand Painted Stone Texture](https://assetstore.unity.com/packages/2d/textures-materials/floors/hand-painted-stone-texture-73949)
+
 [Yughues Free PBR Metal Plates](https://assetstore.unity.com/packages/2d/textures-materials/metals/yughues-free-pbr-metal-plates-35362)
+
 [Modular Fantasy Bridges](https://assetstore.unity.com/packages/3d/environments/fantasy/modular-fantasy-bridges-99940)
 
-#### Assets employés pour les unités :
+##### Assets employés pour les unités :
 
 [Strong Knight](https://assetstore.unity.com/packages/3d/characters/humanoids/strong-knight-83586)
+
 [Jeremy Base Male Character](https://assetstore.unity.com/packages/3d/characters/jeremy-base-male-character-33083)
+
 [Warrior Pack Bundle 1](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-1-free-36405)
+
 [Warrior Pack Bundle 2](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-2-free-42454)
+
 [Warrior Pack Bundle 3](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-3-free-47320)
 
-#### Assets employés pour les sorts :
+##### Assets employés pour les sorts :
 
 [KY Magic Effects](https://assetstore.unity.com/packages/vfx/particles/spells/ky-magic-effects-free-21927)
+
 [Low Poly Fantasy Sword](https://assetstore.unity.com/packages/3d/props/weapons/low-poly-fantasy-sword-65120)
+
 [Shield](https://assetstore.unity.com/packages/3d/props/weapons/shield-61351)
+
 [Space Shooter Asteroids](https://assetstore.unity.com/packages/3d/environments/sci-fi/space-shooter-asteroids-96444)
+
 [Standard Assets](https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-32351)
 
-#### Asset employé pour les textes du menu :
+##### Asset employé pour les textes du menu :
 
 [TextMesh Pro](https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126)
 
-#### Asset employé pour le lobby :
+##### Asset employé pour le lobby :
 
 [Network Lobby](https://assetstore.unity.com/packages/essentials/network-lobby-41836)
 
