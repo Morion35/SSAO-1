@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ErekiBallD : MonoBehaviour
 {
@@ -9,18 +10,19 @@ public class ErekiBallD : MonoBehaviour
 	
 	void Awake ()
 	{
-		GetComponentInParent<PlayerStatus>().mana -= cost;
+		GetComponentInParent<PSNetwork>().mana -= cost;
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("enemy"))
 		{
-			other.GetComponent<enemyMovement>().HP -= damage;
+			other.GetComponent<EMNetwork>().Damage(damage);
 		}
 		if (other.CompareTag("Player"))
 		{
-			other.GetComponent<PlayerStatus>().HP -= (damage - (damage*other.GetComponent<PlayerStatus>().armor/100));
+			other.GetComponent<PSNetwork>().Damage(damage);
 		}
+		Destroy(gameObject);
 	}
 }
