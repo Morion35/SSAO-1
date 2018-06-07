@@ -23,6 +23,5 @@ public class ErekiBallD : MonoBehaviour
 		{
 			other.GetComponent<PSNetwork>().Damage(damage);
 		}
-		Destroy(gameObject);
 	}
 }
