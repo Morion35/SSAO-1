@@ -49,7 +49,7 @@ public class Player : NetworkBehaviour
 		if (isLocalPlayer)
 			onToggleLocal.Invoke(true);
 		else
-			onToggleRemote.Invoke(true);
+			onToggleRemote.Invoke(false);
 		
 	}
 	

@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.Networking;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class PlayerStatus : MonoBehaviour
-{
+public class PSNetwork : NetworkBehaviour {
+
 	private Animator anim;
 
 	public Image mana_bar;
@@ -16,17 +15,20 @@ public class PlayerStatus : MonoBehaviour
 
 	public GameObject game_over;
 
-	public float maxmana = 100;
+	public const float maxmana = 100f;
 
-	public float maxHP = 100;
+	public const float maxHP = 100f;
 
-	public float mana;
+	[SyncVar]
+	public float mana = maxmana;
 
+	[SyncVar]
 	public float armor;
 
 	public float _basearmor;
 
-	public float HP;
+	[SyncVar]
+	public float HP = maxHP;
 
 	public bool isdead = false;
 
@@ -42,15 +44,19 @@ public class PlayerStatus : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		anim = GetComponent<Animator>();
-		HP = maxHP;
-		_basearmor = armor;
-		mana = maxmana;
+		if (!isLocalPlayer)
+		{
+			anim = GetComponent<Animator>();
+		}
 	}
 	
 	// Update is called once per frame
 	void LateUpdate ()
 	{
+		if (!isLocalPlayer)
+		{
+			return;
+		}
 		if (!isdead && HP <= 0)
 		{
 			timeofdeath = Time.time + timetocam;

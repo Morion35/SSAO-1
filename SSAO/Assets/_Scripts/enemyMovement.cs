@@ -34,7 +34,7 @@ public class enemyMovement : MonoBehaviour {
 
 	public float damage = 15f;
 
-	private float fireuse;
+	private float fireuse = 4f;
 
 	// Use this for initialization
 	void Start () {
