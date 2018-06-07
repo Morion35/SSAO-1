@@ -5,15 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/GameMenu.unity
     guid: d4b8a610c94d94b43a332146bcca6795
   - enabled: 1
-    path: Assets/_Scenes/plusgrossesave.unity
-    guid: 37a58084bf38d324db7ce055a908cafe
-  - enabled: 1
     path: Assets/_Scenes/GameLobby.unity
     guid: b3e187007c41c4cb088cdd0626c2ee62
-  - enabled: 1
+  - enabled: 0
+    path: Assets/_Scenes/plusgrossesave.unity
+    guid: 37a58084bf38d324db7ce055a908cafe
+  - enabled: 0
     path: Assets/_Scenes/Zone 1.unity
     guid: 9755d28a3b06e4704ae3177c5d1f1623
+  - enabled: 1
+    path: Assets/_Scenes/test.unity
+    guid: 5c6181991f9f9c743ad8ba3a4cf52d5d
