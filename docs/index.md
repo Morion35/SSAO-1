@@ -30,5 +30,5 @@ Notre but dans ce projet est de créer un jeu intégrant différents concepts d�
 #### [Accéder à notre GitHub](https://github.com/Wes974/SSAO)
 
  - [Équipe](pages/equipe.html)
- - [images](pages/images.html)
- - [ressources](pages/ressources.html)
+ - [Images](pages/images.html)
+ - [Ressources](pages/ressources.html)
