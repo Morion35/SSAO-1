@@ -12,6 +12,7 @@ public class Tonneau : MonoBehaviour
 		if (other.CompareTag("Spell"))
 		{
 			GameObject clone = Instantiate(Explosion, transform.position, transform.rotation);
+			Destroy(gameObject);
 		}
 	}
 }
