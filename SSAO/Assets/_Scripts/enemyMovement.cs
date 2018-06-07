@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.WSA.WebCam;
 
 public class enemyMovement : MonoBehaviour {
 
@@ -14,7 +14,7 @@ public class enemyMovement : MonoBehaviour {
 	public Transform Player;
 
 	public float HP = 100;
-
+	
 	private GameObject[] Players;
 	
 	AudioSource audio;
@@ -31,16 +31,22 @@ public class enemyMovement : MonoBehaviour {
 
 	private Quaternion initialDir;
 
+	public float firetime = 3f;
+
+	public float damage = 25f;
+
+	private float fireuse;
+
 	// Use this for initialization
 	void Start () {
         initialPos = transform.position;
-
+		
 		initialDir = transform.rotation;
 
 		Players = GameObject.FindGameObjectsWithTag("Player");
 
 		int i = 0;
-		while (!Players[i].activeSelf)
+		while (i < Players.Length && !Players[i].activeSelf)
 		{
 			i++;
 		}
@@ -53,7 +59,7 @@ public class enemyMovement : MonoBehaviour {
         nav = GetComponent<NavMeshAgent>();
 
         anim = GetComponent<Animator>();
-        
+		fireuse = 0f;
 	}
 	
 	// Update is called once per frame
@@ -77,7 +83,8 @@ public class enemyMovement : MonoBehaviour {
 			{
 				if (player.activeSelf)
 				{
-					if (Vector3.Angle(player.transform.position - transform.position, transform.forward) < _fov && (player.transform.position - transform.position).magnitude < 3f && !nav.Raycast(player.transform.position, out hit) || player.GetComponent<AudioSource>().minDistance > (player.transform.position - transform.position).magnitude)
+					if (Vector3.Angle(player.transform.position - transform.position, transform.forward) < _fov && (player.transform.position - transform.position).magnitude < 3f
+					    && !nav.Raycast(player.transform.position, out hit) || player.GetComponent<AudioSource>().minDistance > (player.transform.position - transform.position).magnitude)
 					{
 						Player = player.transform;
 						audio = player.GetComponent<AudioSource>();
@@ -92,7 +99,6 @@ public class enemyMovement : MonoBehaviour {
 					
 				}
 			}
-			
 		}
 		Vector3 targetDir = Player.position - transform.position;
 		float angle = Vector3.Angle(targetDir, transform.forward);
@@ -110,7 +116,7 @@ public class enemyMovement : MonoBehaviour {
 		else
 		{
 			isFocused = false;
-			if (anim.GetBool("detected") && (Player.position - transform.position).magnitude < 2f)
+			if (anim.GetBool("detected") && (Player.position - transform.position).magnitude < 1f)
 			{
 				_time = 0f;
 				nav.isStopped = false;
@@ -120,44 +126,66 @@ public class enemyMovement : MonoBehaviour {
 				nav.SetDestination(Player.position);
 				isFocused = true;
 			}
-			
-			if (audio.maxDistance > targetDir.magnitude)
+			else
 			{
-				anim.SetBool("suspicious",true);
-				_fov = 90f;
-			}
-			if ((nav.destination - transform.position).magnitude <= 0.2f)
-			{
-				anim.SetBool("detected", false);
-				if (anim.GetBool("walking"))
-				{
-					if (_time > 3f)
-					{
-						anim.SetBool("suspicious", false);
-						_fov = 60f;
-						_time = 0f;
-					}
-					anim.SetBool("walking",false);
-					nav.isStopped = true;
-					transform.rotation = initialDir;
-				}
-				else
+				if (audio.maxDistance > targetDir.magnitude)
 				{
 					anim.SetBool("suspicious",true);
-					if (_time > 3f)
-					{
-						anim.SetBool("suspicious", false);
-						anim.SetBool("walking", true);
-						nav.SetDestination(initialPos);
-						_time = 0f;
-					}
+					_fov = 90f;
 				}
-				if (anim.GetBool("suspicious"))
+				if ((nav.destination - transform.position).magnitude <= 0.2f)
 				{
-					_time += Time.deltaTime;
-				}
+					anim.SetBool("detected", false);
+					if (anim.GetBool("walking"))
+					{
+						if (_time > 3f)
+						{
+							anim.SetBool("suspicious", false);
+							_fov = 60f;
+							_time = 0f;
+						}
+						anim.SetBool("walking",false);
+						nav.isStopped = true;
+						transform.rotation = initialDir;
+					}
+					else
+					{
+						anim.SetBool("suspicious",true);
+						if (_time > 3f)
+						{
+							anim.SetBool("suspicious", false);
+							anim.SetBool("walking", true);
+							nav.SetDestination(initialPos);
+							_time = 0f;
+						}
+					}
+					if (anim.GetBool("suspicious"))
+					{
+						_time += Time.deltaTime;
+					}
+			}
+			
 			}
 		}
-		
+		if (anim.GetBool("detected") && (Player.position - transform.position).magnitude < 0.45f && Time.time > fireuse)
+		{
+			fireuse = Time.time + firetime;
+			Player.GetComponent<PlayerStatus>().HP -=
+				damage - (damage * Player.GetComponent<PlayerStatus>().armor / 100);
+		}
+		if (Player.GetComponent<PlayerStatus>().isdead)
+		{
+			Players = GameObject.FindGameObjectsWithTag("Player");
+			isFocused = false;
+			Player = Players[0].transform;
+		}
     }
+
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("porte"))
+		{
+			other.gameObject.GetComponent<porte>().HP = 0;
+		}
+	}
 }
