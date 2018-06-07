@@ -21,6 +21,5 @@ public class ErekiBallDsolo : MonoBehaviour {
 		{
 			other.GetComponent<PlayerStatus>().HP -= damage - damage * other.GetComponent<PlayerStatus>().armor / 100;
 		}
-		Destroy(gameObject);
 	}
 }

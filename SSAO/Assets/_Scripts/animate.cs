@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class animate : NetworkBehaviour
+public class animate : MonoBehaviour
 {
 	private Animator anim;
 
-	private NetworkAnimator netanim;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -17,9 +16,6 @@ public class animate : NetworkBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (!isLocalPlayer)
-			return;
-		
 		float h = Input.GetAxisRaw("Horizontal");
 		float v = Input.GetAxisRaw("Vertical");
 		anim.SetBool("iswalking", h != 0f || v != 0f);
