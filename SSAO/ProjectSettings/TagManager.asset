@@ -8,6 +8,10 @@ TagManager:
   - OtherCamera
   - Spell
   - porte
+  - Baton
+  - Meteor
+  - Fire
+  - ExtractionPoint
   layers:
   - Default
   - TransparentFX
