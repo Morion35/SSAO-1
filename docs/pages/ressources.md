@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Nos Ressources
-tagline: Télécharger les différents ressources en rapports avec notre projets.
+tagline: Télécharger les différents ressources en rapports avec notre projet.
 ---
 
 ### Cahier des charges
