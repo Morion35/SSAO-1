@@ -22,3 +22,7 @@ tagline: Différentes images de SSAO
 ---
 
 [Retour](../index.html)
+
+ - [Équipe](./equipe.html)
+ - [Images](./images.html)
+ - [Ressources](./ressources.html)
