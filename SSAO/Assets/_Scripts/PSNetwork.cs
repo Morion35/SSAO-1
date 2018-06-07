@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -15,20 +16,20 @@ public class PSNetwork : NetworkBehaviour {
 
 	public GameObject game_over;
 
-	public const float maxmana = 100f;
+	public float maxmana = 100f;
 
-	public const float maxHP = 100f;
+	public float maxHP = 100f;
 
-	[SyncVar]
-	public float mana = maxmana;
+	[SyncVar(hook = "ChangeMana")]
+	public float mana;
 
 	[SyncVar]
 	public float armor;
 
 	public float _basearmor;
 
-	[SyncVar]
-	public float HP = maxHP;
+	[SyncVar(hook = "ChangeHP")]
+	public float HP;
 
 	public bool isdead = false;
 
@@ -44,19 +45,19 @@ public class PSNetwork : NetworkBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		if (!isLocalPlayer)
-		{
-			anim = GetComponent<Animator>();
-		}
+		anim = GetComponent<Animator>();
+		HP = maxHP;
+		mana = maxmana;
 	}
-	
-	// Update is called once per frame
-	void LateUpdate ()
+
+	public void Damage(float damage)
 	{
-		if (!isLocalPlayer)
+		if (!isServer)
 		{
 			return;
 		}
+		HP -= damage - damage * armor / 100;
+		
 		if (!isdead && HP <= 0)
 		{
 			timeofdeath = Time.time + timetocam;
@@ -65,6 +66,14 @@ public class PSNetwork : NetworkBehaviour {
 			game_over.SetActive(true);
 			tag = "Untagged";
 			GetComponent<FirstPersonController>().enabled = false;
+		}
+	}
+
+	// Update is called once per frame
+	void LateUpdate ()
+	{
+		if (!isServer)
+		{
 			return;
 		}
 		if (isdead && Time.time >= timeofdeath)
@@ -84,10 +93,16 @@ public class PSNetwork : NetworkBehaviour {
 		{
 			HP = 100f;
 		}
-		
-		HP_bar.fillAmount = HP / maxHP;
-		mana_bar.fillAmount = mana / maxmana;
 	}
 
+	void ChangeHP(float HP)
+	{
+		HP_bar.fillAmount = HP / maxHP;
+	}
+
+	void ChangeMana(float mana)
+	{
+		mana_bar.fillAmount = mana / maxmana;
+	}
 	
 }

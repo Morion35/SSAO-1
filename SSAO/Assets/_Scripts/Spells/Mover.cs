@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Component = UnityEngine.Component;
 
-public class Mover : NetworkBehaviour
+public class Mover : MonoBehaviour
 {
 	public float speed;
 	public GameObject ImpactEffect;
@@ -29,7 +29,6 @@ public class Mover : NetworkBehaviour
     
         if (!other.CompareTag("Spell"))
         {
-	        Destroy(gameObject);
 	        if (other.CompareTag("porte"))
 	        {
 		        Destroy(gameObject);
@@ -41,7 +40,7 @@ public class Mover : NetworkBehaviour
 	            Destroy(gameObject);
 	            if (ImpactEffect != null)
 	            {
-		            Instantiate(ImpactEffect, other.transform.position + new Vector3(0,0.25f,0), other.transform.rotation);
+		            Instantiate(ImpactEffect, other.transform.position + new Vector3(0, 0.25f, 0), other.transform.rotation);
 	            }
                 if (!other.GetComponent<enemyMovement>().isFocused)
                 {

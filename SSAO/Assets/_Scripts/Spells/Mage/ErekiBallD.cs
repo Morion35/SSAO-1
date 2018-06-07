@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ErekiBallD : NetworkBehaviour
+public class ErekiBallD : MonoBehaviour
 {
 	private float cost = 5f;
 	private float damage = 10;
@@ -21,7 +21,7 @@ public class ErekiBallD : NetworkBehaviour
 		}
 		if (other.CompareTag("Player"))
 		{
-			other.GetComponent<PSNetwork>().HP -= (damage - (damage * other.GetComponent<PlayerStatus>().armor / 100));
+			other.GetComponent<PSNetwork>().Damage(damage);
 		}
 		Destroy(gameObject);
 	}
