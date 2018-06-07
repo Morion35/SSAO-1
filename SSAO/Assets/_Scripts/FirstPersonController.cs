@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Object = System.Object;
 using Random = UnityEngine.Random;
-using UnityEngine.Networking;
+
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -138,7 +138,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = 0f;
             }
-            if (Input.GetButtonDown("Fire1") && Time.time > nextUse && mana >= 5f)
+            if (Input.GetButton("Fire1") && Time.time > nextUse && mana >= 5f)
             {
                 nextUse = Time.time + UseRate;
                 GameObject clone = Instantiate(skillshot, shotspawn.position, shotspawn.rotation, transform);
@@ -169,7 +169,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 nextSpell = Time.time + SpellRate;
                 GameObject clone = Instantiate(spell1, shotspawn.position, shotspawn.rotation, transform);
-                
             }
             
             if (Input.GetButtonDown("Fire4") && Time.time > nextUlt && mana >= 100f)

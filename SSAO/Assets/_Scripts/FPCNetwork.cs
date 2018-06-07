@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
-using UnityEngine.Networking;
-public class FPCNetwork : NetworkBehaviour
+
+public class FPCNetwork : MonoBehaviour 
 {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] public float m_WalkSpeed;
@@ -39,8 +39,8 @@ public class FPCNetwork : NetworkBehaviour
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
-    
     /*
+    
         public GameObject skillshot;
         public GameObject impulsion;
         public GameObject spell1;
@@ -64,38 +64,29 @@ public class FPCNetwork : NetworkBehaviour
         private float mana;
 
         bool isInGame;
-    */
     
+    */
         
         // Use this for initialization
-        
-
-    private void Start()
-    {
-        if (!isLocalPlayer)
+        private void Awake()
         {
-            GetComponentInChildren<AudioListener>().enabled = false;
-            return;
+            m_CharacterController = GetComponent<CharacterController>();
+            m_Camera = Camera.main; // GetComponentInChildren<Camera>();
+            m_OriginalCameraPosition = m_Camera.transform.localPosition;
+            m_FovKick.Setup(m_Camera);
+            m_HeadBob.Setup(m_Camera, m_StepInterval);
+            m_StepCycle = 0f;
+            m_NextStep = m_StepCycle/2f;
+            m_Jumping = false;
+            m_AudioSource = GetComponent<AudioSource>();
+			m_MouseLook.Init(transform , m_Camera.transform);
         }
-        m_CharacterController = GetComponent<CharacterController>();
-        m_Camera = FindObjectOfType<Camera>();
-        m_OriginalCameraPosition = m_Camera.transform.localPosition;
-        m_StepCycle = 0f;
-        m_NextStep = m_StepCycle/2f;
-        m_Jumping = false;
-        m_AudioSource = GetComponent<AudioSource>();
-        m_MouseLook.Init(transform, m_Camera.transform);
-    }
 
-    // Update is called once per frame
+
+        // Update is called once per frame
         private void Update()
         {
-            if (!isLocalPlayer)
-            {
-                Destroy(m_Camera);
-                enabled = false;
-                return;
-            }
+            
             // mana = GetComponent<PlayerStatus>().mana;
                 
             RotateView();
@@ -108,6 +99,7 @@ public class FPCNetwork : NetworkBehaviour
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
+                StartCoroutine(m_JumpBob.DoBobCycle());
                 PlayLandingSound();
                 m_MoveDir.y = 0f;
                 m_Jumping = false;
@@ -160,53 +152,12 @@ public class FPCNetwork : NetworkBehaviour
             m_NextStep = m_StepCycle + .5f;
         }
 
-        private void CmdMove(float speed)
-        {
-            
-            // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
-    
-            // get a normal for the surface that is being touched to move along it
-            RaycastHit hitInfo;
-            Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
-                m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
-            desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
-    
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
-    
-    
-            if (m_CharacterController.isGrounded)
-            {
-                m_MoveDir.y = -m_StickToGroundForce;
-    
-                if (m_Jump)
-                {
-                    m_MoveDir.y = m_JumpSpeed;
-                    PlayJumpSound();
-                    m_Jump = false;
-                    m_Jumping = true;
-                }
-            }
-            else
-            {
-                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
-            }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
-        }
+
         private void FixedUpdate()
         {
-            if (!isLocalPlayer)
-            {
-                Destroy(m_Camera);
-                enabled = false;
-                return;
-            }
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            CmdMove(speed);
-            /*
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
@@ -236,9 +187,8 @@ public class FPCNetwork : NetworkBehaviour
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
             }
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
-            */
-            CmdProgressStepCycle(speed);
-            CmdUpdateCameraPosition(speed);
+            ProgressStepCycle(speed);
+            UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
         }
@@ -253,7 +203,7 @@ public class FPCNetwork : NetworkBehaviour
         }
 
 
-        private void CmdProgressStepCycle(float speed)
+        private void ProgressStepCycle(float speed)
         {
             m_AudioSource.maxDistance = 0.5f;
             m_AudioSource.minDistance = 0.1f;
@@ -294,7 +244,8 @@ public class FPCNetwork : NetworkBehaviour
             m_FootstepSounds[0] = m_AudioSource.clip;
         }
 
-        private void CmdUpdateCameraPosition(float speed)
+
+        private void UpdateCameraPosition(float speed)
         {
             Vector3 newCameraPosition;
             if (!m_UseHeadBob)
@@ -316,6 +267,7 @@ public class FPCNetwork : NetworkBehaviour
             }
             m_Camera.transform.localPosition = newCameraPosition;
         }
+
 
         private void GetInput(out float speed)
         {
@@ -348,7 +300,8 @@ public class FPCNetwork : NetworkBehaviour
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
-    
+
+
         private void RotateView()
         {
             m_MouseLook.LookRotation (transform, m_Camera.transform);

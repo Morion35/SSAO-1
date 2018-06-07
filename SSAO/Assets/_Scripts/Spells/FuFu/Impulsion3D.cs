@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Impulsion3D : MonoBehaviour {
 	
 	private float damage = 40f;
 
@@ -10,8 +10,8 @@ public class NewBehaviourScript : MonoBehaviour {
 	{
 		if (other.CompareTag("enemy"))
 		{
-			if (other.GetComponent<enemyMovement>().Player == GameObject.Find("FuFu").transform &&
-			    other.GetComponent<enemyMovement>().isFocused)
+			if (!(other.GetComponent<enemyMovement>().Player == GameObject.Find("FuFu").transform &&
+			    other.GetComponent<enemyMovement>().isFocused))
 			{
 				other.GetComponent<enemyMovement>().HP -= damage;
 			}
