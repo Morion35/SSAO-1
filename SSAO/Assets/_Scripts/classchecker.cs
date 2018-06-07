@@ -14,8 +14,11 @@ public class classchecker : MonoBehaviour {
 		for (int j = 0; j < transform.childCount; j++)
 		{
 			Players[j] = transform.GetChild(j).gameObject;
+			Players[j].SetActive(false);
 		}
 		int i = PlayerPrefs.GetInt("Players", 0);
-		GetComponentInParent<LobbyManager>().playerPrefab = Players[i];
+		Players[i].SetActive(true);
+		GetComponentInParent<LobbyManager>().gamePlayerPrefab = Players[i].gameObject;
+		gameObject.SetActive(false);
 	}
 }
