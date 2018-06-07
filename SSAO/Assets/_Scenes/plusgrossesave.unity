@@ -24826,6 +24826,32 @@ GameObject:
     - {fileID: 136386507993124338, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a53cccc4db3ebaf4c995dd4b1aa5b8ab, type: 2}
   m_IsPrefabParent: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 646359706}
+  m_Layer: 0
+  m_Name: rMiddle1J
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &646359706
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646359705}
+  m_LocalRotation: {x: 0.1147695, y: 0.20957981, z: 0.9579377, w: 0.15893297}
+  m_LocalPosition: {x: 0.083740726, y: 0.030700363, z: -0.0057808575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 278060783}
+  m_Father: {fileID: 1073512592}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &648465012 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1198422654091714, guid: 9b27e40823e80a54390cefeeed8f3e9f,
