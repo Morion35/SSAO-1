@@ -27,5 +27,10 @@ public class MeteorLauncher : MonoBehaviour {
 		{
 			Instantiate(ImpactEffect, other.transform.position + new Vector3(0,200f,0), other.transform.rotation);
 		}
+			
+		if (other.CompareTag("Player"))
+		{
+			Instantiate(ImpactEffect, other.transform.position + new Vector3(0,200f,0), other.transform.rotation);
+		}
 	}
 }
