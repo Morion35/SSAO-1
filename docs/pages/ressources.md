@@ -28,49 +28,64 @@ Vous pouvez télécharger notre rapport de projet [ici](https://github.com/Wes97
 Vous pouvez télécharger notre rapport de projet [ici](https://github.com/Wes974/SSAO/raw/master/docs/assets/rapport2.pdf)
 
 
-#### Soutenance 3
+##### Soutenance 3
 
 
 Vous pouvez télécharger notre rapport de projet [ici](https://github.com/Wes974/SSAO/raw/master/docs/assets/rapport3.pdf)
 
+---
+
+### Logiciels Utilisés
+
+Nous avons utilisés les logiciels suivant lors de la réalisation de notre projet :
+
+Unity : Moteur de jeu 2D/3D permettant notamment grâce à des outils intuitifs (moteur physique, audio...) de réaliser des jeux en réseaux et des animations.
+
+Git et GitHub : Logiciel de gestion de version qui nous permettra de partager notre code entre nous et de le stocker sur GitHub.
+
+Visual Studio / Rider : Permettent la programmations des différents scripts C#
+
+Blender : Logiciel de modélisation, d’animation et de rendu en 3D.
+
+---
 
 ### Assets
 
 #### Assets employés pour la map :
 
-* https://assetstore.unity.com/packages/3d/environments/industrial/storage-building-50430
-* https://assetstore.unity.com/packages/3d/environments/industrial/building-kit-1-68179 
-* https://assetstore.unity.com/packages/essentials/asset-packs/unity-particle-pack-73777
-* https://assetstore.unity.com/packages/3d/props/exterior/victorian-pbr-streetlights-50828 
-* https://assetstore.unity.com/packages/3d/environments/urban/victorian-pie-shop-21541 
-* https://assetstore.unity.com/packages/3d/props/industrial/pipes-kit-64170
-* https://assetstore.unity.com/packages/2d/textures-materials/floors/hand-painted-stone-texture-73949
-* https://assetstore.unity.com/packages/2d/textures-materials/metals/yughues-free-pbr-metal-plates-35362
-* https://assetstore.unity.com/packages/3d/environments/fantasy/modular-fantasy-bridges-99940
+https://assetstore.unity.com/packages/3d/environments/industrial/storage-building-50430
+https://assetstore.unity.com/packages/3d/environments/industrial/building-kit-1-68179 
+https://assetstore.unity.com/packages/essentials/asset-packs/unity-particle-pack-73777
+https://assetstore.unity.com/packages/3d/props/exterior/victorian-pbr-streetlights-50828 
+https://assetstore.unity.com/packages/3d/environments/urban/victorian-pie-shop-21541 
+https://assetstore.unity.com/packages/3d/props/industrial/pipes-kit-64170
+https://assetstore.unity.com/packages/2d/textures-materials/floors/hand-painted-stone-texture-73949
+https://assetstore.unity.com/packages/2d/textures-materials/metals/yughues-free-pbr-metal-plates-35362
+https://assetstore.unity.com/packages/3d/environments/fantasy/modular-fantasy-bridges-99940
 
 #### Assets employés pour les unités :
 
-* https://assetstore.unity.com/packages/3d/characters/humanoids/strong-knight-83586 
-* https://assetstore.unity.com/packages/3d/characters/jeremy-base-male-character-33083 
-* https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-3-free-47320 
-* https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-1-free-36405 
-* https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-2-free-42454
+https://assetstore.unity.com/packages/3d/characters/humanoids/strong-knight-83586 
+https://assetstore.unity.com/packages/3d/characters/jeremy-base-male-character-33083 
+https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-3-free-47320 
+https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-1-free-36405 
+https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-2-free-42454
 
 #### Assets employés pour les sorts :
 
-* https://assetstore.unity.com/packages/vfx/particles/spells/ky-magic-effects-free-21927 
-* https://assetstore.unity.com/packages/3d/props/weapons/low-poly-fantasy-sword-65120 
-* https://assetstore.unity.com/packages/3d/props/weapons/shield-61351
-* https://assetstore.unity.com/packages/3d/environments/sci-fi/space-shooter-asteroids-96444 
-* https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-32351
+https://assetstore.unity.com/packages/vfx/particles/spells/ky-magic-effects-free-21927 
+https://assetstore.unity.com/packages/3d/props/weapons/low-poly-fantasy-sword-65120 
+https://assetstore.unity.com/packages/3d/props/weapons/shield-61351
+https://assetstore.unity.com/packages/3d/environments/sci-fi/space-shooter-asteroids-96444 
+https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-32351
 
 #### Asset employé pour les textes du menu :
 
-* https ://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126
+https ://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126
 
 #### Asset employé pour le lobby :
 
-* https ://assetstore.unity.com/packages/essentials/network-lobby-41836
+https ://assetstore.unity.com/packages/essentials/network-lobby-41836
 
 ---
 
