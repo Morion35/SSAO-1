@@ -6,8 +6,11 @@ using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour
+{
 
+
+	public StatsMenu StatsMenu;
 
 	public void LaunchMageZone1()
 	{
@@ -23,14 +26,9 @@ public class MainMenu : MonoBehaviour {
 		
 	}
 	
-	public void LaunchHealerZone1()
+	public void LaunchLevel1()
 	{
-		SceneManager.LoadScene("Zone 1");
-	}
-	
-	public void LaunchMulti()
-	{
-		SceneManager.LoadScene("GameLobby");
+		StatsMenu.LoadScene();
 	}
 
 	public void QuitGame()
