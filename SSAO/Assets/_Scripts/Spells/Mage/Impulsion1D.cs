@@ -15,13 +15,17 @@ public class Impulsion1D : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("enemy"))
+		if (other.CompareTag("Spell"))
 		{
-			other.GetComponent<enemyMovement>().HP -= damage;
+			if (other.CompareTag("enemy"))
+			{
+				other.GetComponent<enemyMovement>().HP -= damage;
+			}
+			if (other.CompareTag("Player") && (other.transform.position - transform.position).magnitude >= 0.05f )
+			{
+				other.GetComponent<PlayerStatus>().HP -= (damage - (damage*other.GetComponent<PlayerStatus>().armor/100));
+			}
 		}
-		if (other.CompareTag("Player") && (other.transform.position - transform.position).magnitude >= 0.05f )
-		{
-			other.GetComponent<PlayerStatus>().HP -= (damage - (damage*other.GetComponent<PlayerStatus>().armor/100));
-		}
+		
 	}
 }

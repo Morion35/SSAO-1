@@ -16,13 +16,18 @@ public class LifeBallDH : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("enemy"))
+		if (!other.CompareTag("Spell"))
 		{
-			other.GetComponent<enemyMovement>().HP -= (int)damage;
+			if (other.CompareTag("enemy"))
+			{
+				other.GetComponent<enemyMovement>().HP -= (int)damage;
+			}
+			if (other.CompareTag("Player"))
+			{
+				other.GetComponent<PlayerStatus>().HP += (int)damage*2;
+			}
+			Destroy(gameObject);
 		}
-		if (other.CompareTag("Player"))
-		{
-			other.GetComponent<PlayerStatus>().HP += (int)damage*2;
-		}
+		
 	}
 }
