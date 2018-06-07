@@ -74,6 +74,7 @@ public class FPCNetwork : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
+            GetComponentInChildren<AudioListener>().enabled = false;
             return;
         }
         m_CharacterController = GetComponent<CharacterController>();
