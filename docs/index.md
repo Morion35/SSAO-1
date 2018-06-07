@@ -4,7 +4,7 @@ title: SSAO
 tagline: Site pour le jeu SSAO
 ---
 
-![](https://github.com/Wes974/SSAO/raw/master/docs/assets/img/logo.png)
+![](https://github.com/Wes974/SSAO/raw/master/docs/assets/img/logo.jpg)
 
 #### Présentation
 
