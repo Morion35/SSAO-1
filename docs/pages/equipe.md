@@ -29,3 +29,9 @@ Avec ce projet j’espère progresser dans le C# mais aussi apprendre à utili
 ---
 
 [Retour à la page de présentation](../index.html)
+
+---
+
+ - [Voir les membres de notre équipe](pages/equipe.html)
+ - [Voir des images de notre jeu](pages/images.html)
+ - [Télécharger les rapports](pages/rapports.html)

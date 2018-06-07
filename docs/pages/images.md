@@ -22,3 +22,9 @@ tagline: Différentes images de SSAO
 ---
 
 [Retour](../index.html)
+
+---
+
+ - [Voir les membres de notre équipe](pages/equipe.html)
+ - [Voir des images de notre jeu](pages/images.html)
+ - [Télécharger les rapports](pages/rapports.html)
