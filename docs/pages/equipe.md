@@ -30,6 +30,6 @@ Avec ce projet j’espère progresser dans le C# mais aussi apprendre à utili
 
 [Retour](../index.html)
 
- - [Équipe](pages/equipe.html)
- - [images](pages/images.html)
- - [ressources](pages/ressources.html)
+ - [Équipe](./equipe.html)
+ - [Images](./images.html)
+ - [Ressources](./ressources.html)

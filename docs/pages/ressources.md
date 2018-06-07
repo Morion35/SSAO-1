@@ -76,6 +76,6 @@ Vous pouvez télécharger notre rapport de projet [ici](https://github.com/Wes97
 
 [Retour](../index.html)
 
- - [Équipe](pages/equipe.html)
- - [images](pages/images.html)
- - [ressources](pages/ressources.html)
+ - [Équipe](./equipe.html)
+ - [Images](./images.html)
+ - [Ressources](./ressources.html)
