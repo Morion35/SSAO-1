@@ -18,11 +18,10 @@ public class animate : NetworkBehaviour
 	void Update ()
 	{
 		if (!isLocalPlayer)
-		{
 			return;
-		}
+		
 		float h = Input.GetAxisRaw("Horizontal");
 		float v = Input.GetAxisRaw("Vertical");
-		anim.SetBool("iswalking", h!=0f || v != 0f);
+		anim.SetBool("iswalking", h != 0f || v != 0f);
 	}
 }
