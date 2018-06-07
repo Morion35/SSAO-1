@@ -17,7 +17,7 @@ public class ErekiBallD : MonoBehaviour
 	{
 		if (other.CompareTag("enemy"))
 		{
-			other.GetComponent<enemyMovement>().HP -= damage;
+			other.GetComponent<EMNetwork>().Damage(damage);
 		}
 		if (other.CompareTag("Player"))
 		{
