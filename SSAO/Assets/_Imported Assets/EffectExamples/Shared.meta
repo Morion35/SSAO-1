@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fileFormatVersion: 2
 guid: a29424c180fe4ee9bd8666fc261cd11f
 folderAsset: yes
@@ -7,3 +8,8 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+﻿fileFormatVersion: 2
+guid: a29424c180fe4ee9bd8666fc261cd11f
+timeCreated: 1527006855
+>>>>>>> parent of d6d7b23... Merge pull request #12 from Wes974/master
