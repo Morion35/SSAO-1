@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR.WSA.WebCam;
 
 public class enemyMovement : MonoBehaviour {
 
@@ -33,9 +32,9 @@ public class enemyMovement : MonoBehaviour {
 
 	public float firetime = 3f;
 
-	public float damage = 25f;
+	public float damage = 15f;
 
-	private float fireuse;
+	private float fireuse = 4f;
 
 	// Use this for initialization
 	void Start () {
