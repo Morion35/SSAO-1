@@ -24,7 +24,7 @@ public class SparkD : MonoBehaviour
 		{
 			if (enemy != null && (enemy.transform.position - transform.position).magnitude <= 0.7f)
 			{
-				enemy.GetComponent<EMNetwork>().Damage(damage);
+				enemy.GetComponent<enemyMovement>().HP -= (damage);
 				enemy.GetComponent<NavMeshAgent>().speed /= 2;
 			}
 		}
