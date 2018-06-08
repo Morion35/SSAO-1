@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: ca08f4ee922980e4688b4d4539af4991
+timeCreated: 1528399059
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: avantbrasd
+    100002: avantbrasg
+    100004: avantbrasg_001
+    100006: bassin
+    100008: brasd
+    100010: brasg
+    100012: couded
+    100014: coudeg
+    100016: cuissed
+    100018: cuisseg
+    100020: Cylinder
+    100022: Cylinder_001
+    100024: Cylinder_002
+    100026: Epauled
+    100028: epauleG
+    100030: genoug
+    100032: genouxd
+    100034: HEad
+    100036: jambed
+    100038: jambeg
+    100040: piedd
+    100042: piedg
+    100044: //RootNode
+    100046: talond
+    100048: talong
+    100050: torso
+    400000: avantbrasd
+    400002: avantbrasg
+    400004: avantbrasg_001
+    400006: bassin
+    400008: brasd
+    400010: brasg
+    400012: couded
+    400014: coudeg
+    400016: cuissed
+    400018: cuisseg
+    400020: Cylinder
+    400022: Cylinder_001
+    400024: Cylinder_002
+    400026: Epauled
+    400028: epauleG
+    400030: genoug
+    400032: genouxd
+    400034: HEad
+    400036: jambed
+    400038: jambeg
+    400040: piedd
+    400042: piedg
+    400044: //RootNode
+    400046: talond
+    400048: talong
+    400050: torso
+    2100000: unnamed
+    2300000: avantbrasd
+    2300002: avantbrasg
+    2300004: avantbrasg_001
+    2300006: bassin
+    2300008: brasd
+    2300010: brasg
+    2300012: couded
+    2300014: coudeg
+    2300016: cuissed
+    2300018: cuisseg
+    2300020: Cylinder
+    2300022: Cylinder_001
+    2300024: Cylinder_002
+    2300026: Epauled
+    2300028: epauleG
+    2300030: genoug
+    2300032: genouxd
+    2300034: HEad
+    2300036: jambed
+    2300038: jambeg
+    2300040: piedd
+    2300042: piedg
+    2300044: talond
+    2300046: talong
+    2300048: torso
+    3300000: avantbrasd
+    3300002: avantbrasg
+    3300004: avantbrasg_001
+    3300006: bassin
+    3300008: brasd
+    3300010: brasg
+    3300012: couded
+    3300014: coudeg
+    3300016: cuissed
+    3300018: cuisseg
+    3300020: Cylinder
+    3300022: Cylinder_001
+    3300024: Cylinder_002
+    3300026: Epauled
+    3300028: epauleG
+    3300030: genoug
+    3300032: genouxd
+    3300034: HEad
+    3300036: jambed
+    3300038: jambeg
+    3300040: piedd
+    3300042: piedg
+    3300044: talond
+    3300046: talong
+    3300048: torso
+    4300000: Cylinder_001
+    4300002: Cylinder
+    4300004: HEad
+    4300006: torso
+    4300008: bassin
+    4300010: jambed
+    4300012: jambeg
+    4300014: genoug
+    4300016: genouxd
+    4300018: cuissed
+    4300020: cuisseg
+    4300022: talond
+    4300024: talong
+    4300026: piedd
+    4300028: piedg
+    4300030: Epauled
+    4300032: epauleG
+    4300034: brasg
+    4300036: brasd
+    4300038: couded
+    4300040: coudeg
+    4300042: avantbrasd
+    4300044: avantbrasg
+    4300046: Cylinder_002
+    4300048: avantbrasg_001
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
